@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.hamcrest.Matcher;
-
 public class Kunde implements Serializable {
 
 	private static final long serialVersionUID = 1L;

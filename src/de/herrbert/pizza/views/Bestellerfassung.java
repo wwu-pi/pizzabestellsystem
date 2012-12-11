@@ -3,10 +3,10 @@ package de.herrbert.pizza.views;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -51,7 +51,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Zeit"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			JTextArea zeit = new JTextArea("14:30 (14.12.2012)", 1, 30);
+			JTextArea zeit = new JTextArea(getFormatierteZeit(), 1, 30);
 			zeit.setEnabled(false);
 			datenPanel.add(wrap(zeit), constraints);
 			
@@ -83,7 +83,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Lieferhinweis"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			lieferhinweis = new JTextArea(3, 2);
+			lieferhinweis = new JTextArea(bestellung.getLieferhinweis(), 3, 2);
 			disableTabInsertion(lieferhinweis);
 			datenPanel.add(wrap(lieferhinweis), constraints);
 			
@@ -108,6 +108,11 @@ public class Bestellerfassung extends JFrame {
 		Dimension minimumSize = getSize();
 		setMinimumSize(minimumSize);
 		setLocationRelativeTo(null);
+	}
+
+	private String getFormatierteZeit() {
+		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm (dd.MM.yyyy)");
+		return formatter.format(bestellung.getZeit());
 	}
 
 	

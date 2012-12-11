@@ -14,7 +14,7 @@ public class Bestellung implements Serializable {
 	public Bestellung(Kunde kunde) {
 		this.kunde = kunde;
 		this.zeit = Zeitgeber.getAktuelleZeit();
-		this.lieferhinweis = kunde.getLieferhinweis();
+		this.setLieferhinweis(kunde.getLieferhinweis());
 	}
 
 	public void stornieren() {
@@ -27,6 +27,10 @@ public class Bestellung implements Serializable {
 
 	public String getLieferhinweis() {
 		return lieferhinweis;
+	}
+
+	public void setLieferhinweis(String lieferhinweis) {
+		this.lieferhinweis = lieferhinweis;
 	}
 
 }
