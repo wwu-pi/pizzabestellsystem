@@ -1,11 +1,12 @@
 package de.herrbert.pizza.views;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
@@ -18,6 +19,8 @@ import static de.herrbert.pizza.views.UiUtils.*;
 import static java.awt.GridBagConstraints.*;
 
 import de.herrbert.pizza.domain.Bestellung;
+import de.herrbert.pizza.views.command.ZurUebersichtGehenCommand;
+import de.herrbert.pizza.views.command.CommandListener;
 
 public class Bestellerfassung extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -30,8 +33,11 @@ public class Bestellerfassung extends JFrame {
 
 	private JButton abschliessen;
 
-	public Bestellerfassung(Bestellung bestellung) {
+	private CommandListener commandListener;
+
+	public Bestellerfassung(Bestellung bestellung, CommandListener commandListener) {
 		this.bestellung = bestellung;
+		this.commandListener = commandListener;
 		initialize();
 	}
 

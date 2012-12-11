@@ -32,7 +32,7 @@ public class BestellUebersicht extends JFrame {
 	private JButton loeschen;
 	private JButton bearbeiten;
 	
-	BestellUebersicht(Pizzeria pizzeria, CommandListener commandListener) {
+	public BestellUebersicht(Pizzeria pizzeria, CommandListener commandListener) {
 		this.pizzeria = pizzeria;
 		this.commandListener = commandListener;
 		initialize();
