@@ -3,7 +3,9 @@ package de.herrbert.pizza.controller;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
+import de.herrbert.pizza.domain.Bestellung;
 import de.herrbert.pizza.domain.Kunde;
 import de.herrbert.pizza.domain.serializer.KundenDeserialisierer;
 import de.herrbert.pizza.domain.serializer.KundenSerialisierer;
@@ -31,6 +33,14 @@ public class Pizzeria {
 
 	public Kunde sucheKunde(String telefonnummer) {
 		return kunden.get(telefonnummer);
+	}
+
+	public Set<Bestellung> getAlleBestellungen() {
+		Set<Bestellung> alleBestellungen = new HashSet<>();
+		for (Kunde kunde : kunden.values()) {
+			alleBestellungen.addAll(kunde.getBestellungen());
+		}
+		return alleBestellungen;
 	}
 
 }
