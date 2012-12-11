@@ -105,7 +105,6 @@ public class BestellUebersicht extends JFrame {
 		Dimension minimumSize = getSize();
 		setMinimumSize(minimumSize);
 		setLocationRelativeTo(null);
-		setVisible(true);
 	}
 
 	private DefaultListModel<Bestellung> getBestellungenModel() {
