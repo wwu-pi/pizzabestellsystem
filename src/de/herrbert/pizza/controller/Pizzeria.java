@@ -24,13 +24,13 @@ public class Pizzeria {
 			kunden.put(kunde.getTelefonnummer(), kunde);
 		}
 	}
+	
+	public void persistiereKunden(KundenSerialisierer kundenSerialisierer) {
+		kundenSerialisierer.serialisiereKunden(new HashSet<>(kunden.values()));
+	}
 
 	public Kunde sucheKunde(String telefonnummer) {
 		return kunden.get(telefonnummer);
-	}
-
-	public void persistiereKunden(KundenSerialisierer kundenSerialisierer) {
-		kundenSerialisierer.serialisiereKunden(new HashSet<>(kunden.values()));
 	}
 
 }
