@@ -15,7 +15,6 @@ import static org.junit.Assert.*;
 
 public class PizzeriaPersistenzTest {
 
-	private static final String TELEFONNUMMER = "";
 	@Test
 	public void sollteLadenUndSpeichernKoennen() {
 		Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
@@ -31,7 +30,7 @@ public class PizzeriaPersistenzTest {
 			@Override
 			public Set<Kunde> deserialisiereKunden() {
 				Set<Kunde> kunden = new HashSet<>();
-				kunden.add(new Kunde(TELEFONNUMMER));
+				kunden.add(new Kunde(""));
 				return kunden;
 			}
 		});
