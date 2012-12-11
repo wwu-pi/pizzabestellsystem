@@ -40,11 +40,10 @@ public class BestellUebersicht extends JFrame {
 
 	private void initialize() {
 		setTitle("Bestellübersicht");
+		setLayout(new BorderLayout());
 		
-		JPanel mainPanel = new JPanel(new BorderLayout(), true);
 		JPanel controlPanel = new JPanel(new BorderLayout(), true);
-		mainPanel.add(controlPanel, BorderLayout.SOUTH);
-		add(mainPanel);
+		add(controlPanel, BorderLayout.SOUTH);
 		
 		{
 			bestellungen = new JList<Bestellung>(getBestellungenModel());
@@ -56,7 +55,7 @@ public class BestellUebersicht extends JFrame {
 				}
 			});
 			JScrollPane bestellungenPanel = new JScrollPane(bestellungen);
-			mainPanel.add(bestellungenPanel, BorderLayout.CENTER);
+			add(bestellungenPanel, BorderLayout.CENTER);
 		}
 		
 		{

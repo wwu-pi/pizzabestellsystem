@@ -12,7 +12,7 @@ import de.herrbert.pizza.views.command.Command;
 import de.herrbert.pizza.views.command.CommandListener;
 
 public class BestellsystemApplication implements CommandListener {
-	private JFrame aktuelleMaske;
+	private JFrame aktuelleMaske = new JFrame("empty");
 	private Pizzeria pizzeria;
 
 	public BestellsystemApplication(Pizzeria pizzeria) {
@@ -20,7 +20,15 @@ public class BestellsystemApplication implements CommandListener {
 	}
 	
 	private void start() {
-		aktuelleMaske = new BestellUebersicht(pizzeria, this);
+		wechseleZu(new BestellUebersicht(pizzeria, this));
+	}
+	
+	private void wechseleZu(JFrame neuerMaske) {
+		aktuelleMaske.setVisible(false);
+		
+		aktuelleMaske = neuerMaske;
+		
+		aktuelleMaske.setLocationRelativeTo(null);
 		aktuelleMaske.addWindowListener(new WindowClosingHandler(pizzeria));
 		aktuelleMaske.setVisible(true);
 	}
@@ -29,20 +37,13 @@ public class BestellsystemApplication implements CommandListener {
 	public void process(Command command) {
 		wechseleZu(command.erstelleMaske());
 	}
-
-	private void wechseleZu(JFrame neuerMaske) {
-		aktuelleMaske.setVisible(false);
-		aktuelleMaske = neuerMaske;
-		aktuelleMaske.addWindowListener(new WindowClosingHandler(pizzeria));
-		aktuelleMaske.setVisible(true);
-	}
 	
 	public static void main(String[] args) {
-		BestellsystemApplication app = new BestellsystemApplication(pizzeriaMit40Kunden());
+		BestellsystemApplication app = new BestellsystemApplication(pizzeriaMitFuenfKunden());
 		app.start();
 	}
 	
-	private static Pizzeria pizzeriaMit40Kunden() {
+	private static Pizzeria pizzeriaMitFuenfKunden() {
 		final Pizzeria pizzeria = new Pizzeria(new KundenDeserialisierer() {
 			@Override
 			public Set<Kunde> deserialisiereKunden() {
