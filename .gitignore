@@ -1,0 +1,15 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse Files #
+.project
+.metadata
+bin/**
+local.properties
+.classpath
+.settings/
+.loadpath
