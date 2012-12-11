@@ -81,7 +81,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Bestellung"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			inhalt = new JTextArea(6, 1);
+			inhalt = new JTextArea(bestellung.getInhalt(), 6, 1);
 			disableTabInsertion(inhalt);
 			datenPanel.add(wrap(inhalt), constraints);
 			
@@ -101,13 +101,20 @@ public class Bestellerfassung extends JFrame {
 			add(controlPanel, BorderLayout.SOUTH);
 			
 			abschliessen = new JButton("Bestellung abschließen");
-			getRootPane().setDefaultButton(abschliessen);
-			Component[] components = { abschliessen };
-			controlPanel.add(flowLayoutPanelWith(components), BorderLayout.WEST);
+			abschliessen.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					bestellung.setInhalt(inhalt.getText());
+					bestellung.setLieferhinweis(lieferhinweis.getText());
+					commandListener.process(new ZurUebersichtGehenCommand());
+				}
+			});
+			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.WEST);
 			
 			JButton abbrechen = new JButton("abbrechen");
-			Component[] components1 = { abbrechen };
-			controlPanel.add(flowLayoutPanelWith(components1), BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.EAST);
+			
+			getRootPane().setDefaultButton(abschliessen);
 		}
 		
 		pack();

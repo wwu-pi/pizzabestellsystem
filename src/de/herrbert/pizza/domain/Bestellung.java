@@ -9,6 +9,7 @@ public class Bestellung implements Serializable {
 	
 	private final Kunde kunde;
 	private final Date zeit;
+	private String inhalt;
 	private String lieferhinweis;
 
 	public Bestellung(Kunde kunde) {
@@ -23,6 +24,14 @@ public class Bestellung implements Serializable {
 
 	public Date getZeit() {
 		return zeit;
+	}
+	
+	public String getInhalt() {
+		return inhalt;
+	}
+	
+	public void setInhalt(String inhalt) {
+		this.inhalt = inhalt;
 	}
 
 	public String getLieferhinweis() {
