@@ -25,6 +25,7 @@ public class BestellsystemApplication implements CommandListener {
 	
 	private void wechseleZu(JFrame neuerMaske) {
 		aktuelleMaske.setVisible(false);
+		aktuelleMaske.dispose();
 		
 		aktuelleMaske = neuerMaske;
 		
