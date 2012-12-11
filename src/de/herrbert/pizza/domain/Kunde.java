@@ -5,11 +5,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hamcrest.Matcher;
+
 public class Kunde implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private final String telefonnummer;
+	private String lieferhinweis = "";
 	
 	private final Set<Bestellung> bestellungen = new HashSet<>();
 
@@ -19,6 +22,14 @@ public class Kunde implements Serializable {
 	
 	public String getTelefonnummer() {
 		return telefonnummer;
+	}
+	
+	public String getLieferhinweis() {
+		return lieferhinweis;
+	}
+	
+	public void setLieferhinweis(String lieferhinweis) {
+		this.lieferhinweis = lieferhinweis;
 	}
 
 	public Set<Bestellung> getBestellungen() {
