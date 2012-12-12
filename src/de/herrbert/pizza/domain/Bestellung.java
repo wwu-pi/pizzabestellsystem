@@ -10,7 +10,7 @@ public class Bestellung implements Serializable {
 	
 	private final Date zeit;
 	private final Kunde kunde;
-	private String inhalt;
+	private String inhalt = "";
 	private String lieferhinweis;
 
 	public Bestellung(Kunde kunde) {
