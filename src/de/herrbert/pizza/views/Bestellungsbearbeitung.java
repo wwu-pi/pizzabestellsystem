@@ -24,8 +24,10 @@ import de.herrbert.pizza.views.command.CommandListener;
 public class Bestellungsbearbeitung extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private Bestellung bestellung;
-	private CommandListener commandListener;
+	protected Bestellung bestellung;
+	protected CommandListener commandListener;
+
+	protected JButton abbrechen;
 
 	private JTextArea inhalt;
 	private JTextArea lieferhinweis;
@@ -106,7 +108,7 @@ public class Bestellungsbearbeitung extends JFrame {
 			});
 			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.WEST);
 			
-			JButton abbrechen = new JButton("abbrechen");
+			abbrechen = new JButton("abbrechen");
 			abbrechen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
