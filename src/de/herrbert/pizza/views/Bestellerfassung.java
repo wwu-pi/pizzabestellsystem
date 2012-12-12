@@ -61,7 +61,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Kunde"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			JTextArea kunde = new JTextArea("Max Mustermann");
+			JTextArea kunde = new JTextArea(bestellung.getKundenname());
 			kunde.setEnabled(false);
 			datenPanel.add(wrap(kunde), constraints);
 			
@@ -69,7 +69,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Adresse"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			JTextArea adresse = new JTextArea("Schlossplatz 2\n48149 Münster");
+			JTextArea adresse = new JTextArea(bestellung.getKundenadresse());
 			adresse.setEnabled(false);
 			datenPanel.add(wrap(adresse), constraints);
 			
