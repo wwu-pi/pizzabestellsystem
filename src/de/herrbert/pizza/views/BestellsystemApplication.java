@@ -36,6 +36,7 @@ public class BestellsystemApplication implements CommandListener {
 
 	@Override
 	public void process(Command command) {
+		command.execute(pizzeria);
 		wechseleZu(command.erstelleMaske(pizzeria, this));
 	}
 	

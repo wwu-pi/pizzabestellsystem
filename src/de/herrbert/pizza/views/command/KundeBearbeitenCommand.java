@@ -15,6 +15,11 @@ public class KundeBearbeitenCommand implements Command {
 	}
 
 	@Override
+	public void execute(Pizzeria pizzeria) {
+
+	}
+
+	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
 		Kunde suchergebnis = pizzeria.sucheKunde(telefonnummer);
 		if (suchergebnis == null) {

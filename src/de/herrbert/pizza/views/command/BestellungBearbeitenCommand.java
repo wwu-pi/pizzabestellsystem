@@ -16,6 +16,11 @@ public class BestellungBearbeitenCommand implements Command {
 	}
 
 	@Override
+	public void execute(Pizzeria pizzeria) {
+
+	}
+
+	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
 		return new Bestellerfassung(bestellung, commandListener);
 	}
