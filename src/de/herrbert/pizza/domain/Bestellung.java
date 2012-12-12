@@ -7,11 +7,14 @@ import java.util.Date;
 public class Bestellung implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	private static final SimpleDateFormat ZEIT_FORMAT = new SimpleDateFormat("dd.MM.yyyy / HH:mm:ss");
+
 	private final Date zeit;
 	private final Kunde kunde;
 	private String inhalt = "";
 	private String lieferhinweis;
+
 
 	public Bestellung(Kunde kunde) {
 		this.zeit = Zeitgeber.getAktuelleZeit();
@@ -27,6 +30,10 @@ public class Bestellung implements Serializable {
 		return zeit;
 	}
 	
+	public String getZeitAsString() {
+		return ZEIT_FORMAT.format(getZeit());
+	}
+
 	public String getKundenname() {
 		return kunde.getName();
 	}
@@ -53,8 +60,7 @@ public class Bestellung implements Serializable {
 
 	@Override
 	public String toString() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy / HH:mm:ss");
-		return formatter.format(getZeit()) + " / " + getKundenname();
+		return ZEIT_FORMAT.format(getZeit()) + " / " + getKundenname();
 	}
 
 }

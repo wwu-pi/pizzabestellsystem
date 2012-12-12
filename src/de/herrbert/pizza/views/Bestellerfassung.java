@@ -7,7 +7,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -53,7 +52,7 @@ public class Bestellerfassung extends JFrame {
 			datenPanel.add(new JLabel("Zeit"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
-			JTextArea zeit = new JTextArea(getFormatierteZeit(), 1, 30);
+			JTextArea zeit = new JTextArea(bestellung.getZeitAsString(), 1, 30);
 			zeit.setEnabled(false);
 			datenPanel.add(wrap(zeit), constraints);
 			
@@ -124,11 +123,5 @@ public class Bestellerfassung extends JFrame {
 		setMinimumSize(minimumSize);
 		setLocationRelativeTo(null);
 	}
-
-	private String getFormatierteZeit() {
-		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm (dd.MM.yyyy)");
-		return formatter.format(bestellung.getZeit());
-	}
-
 	
 }
