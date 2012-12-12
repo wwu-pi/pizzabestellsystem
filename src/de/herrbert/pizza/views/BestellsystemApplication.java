@@ -51,6 +51,7 @@ public class BestellsystemApplication implements CommandListener {
 				Set<Kunde> kunden = new HashSet<>();
 				for (int i = 0; i < 5; i++) {
 					Kunde kunde = new Kunde("" + i);
+					kunde.setName("" + i + ". Kunde");
 					kunde.bestellungAufnehmen();
 					kunden.add(kunde);
 				}
