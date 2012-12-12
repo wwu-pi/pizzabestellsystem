@@ -10,8 +10,9 @@ public class Kunde implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private final String telefonnummer;
+	private String name = "";
+	private String adresse = "";
 	private String lieferhinweis = "";
-	
 	private final Set<Bestellung> bestellungen = new HashSet<>();
 
 	public Kunde(String telefonnummer) {
@@ -20,6 +21,22 @@ public class Kunde implements Serializable {
 	
 	public String getTelefonnummer() {
 		return telefonnummer;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getAdresse() {
+		return adresse;
+	}
+	
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 	
 	public String getLieferhinweis() {
@@ -43,6 +60,5 @@ public class Kunde implements Serializable {
 	void removeBestellung(Bestellung bestellung) {
 		bestellungen.remove(bestellung);
 	}
-
 
 }

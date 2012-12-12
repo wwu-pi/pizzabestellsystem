@@ -2,7 +2,6 @@ package de.herrbert.pizza.views;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,10 +15,13 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import static de.herrbert.pizza.views.UiUtils.flowLayoutPanelWith;
+
 import de.herrbert.pizza.controller.Pizzeria;
 import de.herrbert.pizza.domain.Bestellung;
 import de.herrbert.pizza.views.command.BestellungBearbeitenCommand;
 import de.herrbert.pizza.views.command.CommandListener;
+import de.herrbert.pizza.views.command.KundenSucheCommand;
 
 public class BestellUebersicht extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -59,15 +61,18 @@ public class BestellUebersicht extends JFrame {
 		}
 		
 		{
-			JPanel neueBestellungPanel = new JPanel(new FlowLayout());
 			JButton neueBestellungButton = new JButton("Bestellung aufnehmen");
-			neueBestellungPanel.add(neueBestellungButton);
-			controlPanel.add(neueBestellungPanel, BorderLayout.WEST);
+			neueBestellungButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					commandListener.process(new KundenSucheCommand());
+				}
+			});
+			controlPanel.add(flowLayoutPanelWith(neueBestellungButton), BorderLayout.WEST);
 			getRootPane().setDefaultButton(neueBestellungButton);
 		}
 		
 		{
-			JPanel bestellungsAenderungen = new JPanel(new FlowLayout());
 			{
 				bearbeiten = new JButton("bearbeiten");
 				bearbeiten.setEnabled(false);
@@ -80,7 +85,6 @@ public class BestellUebersicht extends JFrame {
 						commandListener.process(new BestellungBearbeitenCommand(ausgewaehlteBestellung));
 					}
 				});
-				bestellungsAenderungen.add(bearbeiten);
 			}
 			
 			{
@@ -94,10 +98,9 @@ public class BestellUebersicht extends JFrame {
 						stelleKorrektenButtonZustandSicher();
 					}
 				});
-				bestellungsAenderungen.add(loeschen);
 			}
 			
-			controlPanel.add(bestellungsAenderungen, BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(bearbeiten, loeschen), BorderLayout.EAST);
 		}
 		
 		pack();

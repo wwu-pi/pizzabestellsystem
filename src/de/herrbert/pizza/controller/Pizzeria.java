@@ -23,8 +23,12 @@ public class Pizzeria {
 	
 	private void ladeKunden() {
 		for (Kunde kunde : quelle.ladeKunden()) {
-			kunden.put(kunde.getTelefonnummer(), kunde);
+			addToKunden(kunde);
 		}
+	}
+	
+	private void addToKunden(Kunde neuerKunde) {
+		kunden.put(neuerKunde.getTelefonnummer(), neuerKunde);
 	}
 	
 	public void persistiereKunden(KundenSenke kundenSenke) {
@@ -33,6 +37,12 @@ public class Pizzeria {
 
 	public Kunde sucheKunde(String telefonnummer) {
 		return kunden.get(telefonnummer);
+	}
+	
+	public Kunde erstelleKunde(String telefonnummer) {
+		Kunde neuerKunde = new Kunde(telefonnummer);
+		addToKunden(neuerKunde);
+		return neuerKunde;
 	}
 
 	public Set<Bestellung> getAlleBestellungen() {
