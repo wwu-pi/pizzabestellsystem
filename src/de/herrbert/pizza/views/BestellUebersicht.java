@@ -85,7 +85,6 @@ public class BestellUebersicht extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						Bestellung ausgewaehlteBestellung = bestellungen.getSelectedValue();
-						System.out.println(ausgewaehlteBestellung);
 						commandListener.process(new BestellungBearbeitenCommand(ausgewaehlteBestellung));
 					}
 				});
