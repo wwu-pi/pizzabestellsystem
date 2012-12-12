@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 import de.herrbert.pizza.controller.Pizzeria;
 import de.herrbert.pizza.domain.Kunde;
-import de.herrbert.pizza.domain.serializer.KundenDeserialisierer;
+import de.herrbert.pizza.domain.serializer.KundenQuelle;
 import de.herrbert.pizza.views.command.Command;
 import de.herrbert.pizza.views.command.CommandListener;
 
@@ -45,9 +45,9 @@ public class BestellsystemApplication implements CommandListener {
 	}
 	
 	private static Pizzeria pizzeriaMitFuenfKunden() {
-		final Pizzeria pizzeria = new Pizzeria(new KundenDeserialisierer() {
+		final Pizzeria pizzeria = new Pizzeria(new KundenQuelle() {
 			@Override
-			public Set<Kunde> deserialisiereKunden() {
+			public Set<Kunde> ladeKunden() {
 				Set<Kunde> kunden = new HashSet<>();
 				for (int i = 0; i < 5; i++) {
 					Kunde kunde = new Kunde("" + i);

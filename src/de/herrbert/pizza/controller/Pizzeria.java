@@ -7,28 +7,28 @@ import java.util.Set;
 
 import de.herrbert.pizza.domain.Bestellung;
 import de.herrbert.pizza.domain.Kunde;
-import de.herrbert.pizza.domain.serializer.KundenDeserialisierer;
-import de.herrbert.pizza.domain.serializer.KundenSerialisierer;
+import de.herrbert.pizza.domain.serializer.KundenQuelle;
+import de.herrbert.pizza.domain.serializer.KundenSenke;
 
 public class Pizzeria {
 
 	private Map<String, Kunde> kunden = new HashMap<>();
 	
-	private KundenDeserialisierer deserialisierer;
+	private KundenQuelle quelle;
 	
-	public Pizzeria(KundenDeserialisierer deserialisierer) {
-		this.deserialisierer = deserialisierer;
+	public Pizzeria(KundenQuelle quelle) {
+		this.quelle = quelle;
 		ladeKunden();
 	}
 	
 	private void ladeKunden() {
-		for (Kunde kunde : deserialisierer.deserialisiereKunden()) {
+		for (Kunde kunde : quelle.ladeKunden()) {
 			kunden.put(kunde.getTelefonnummer(), kunde);
 		}
 	}
 	
-	public void persistiereKunden(KundenSerialisierer kundenSerialisierer) {
-		kundenSerialisierer.serialisiereKunden(new HashSet<>(kunden.values()));
+	public void persistiereKunden(KundenSenke kundenSenke) {
+		kundenSenke.speichereKunden(new HashSet<>(kunden.values()));
 	}
 
 	public Kunde sucheKunde(String telefonnummer) {

@@ -6,8 +6,8 @@ import java.util.Set;
 import org.junit.Test;
 
 import de.herrbert.pizza.domain.Kunde;
-import de.herrbert.pizza.domain.serializer.KundenDeserialisierer;
-import de.herrbert.pizza.domain.serializer.KundenSerialisierer;
+import de.herrbert.pizza.domain.serializer.KundenQuelle;
+import de.herrbert.pizza.domain.serializer.KundenSenke;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -18,17 +18,17 @@ public class PizzeriaPersistenzTest {
 	@Test
 	public void sollteLadenUndSpeichernKoennen() {
 		Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
-		SerialisiererSpy kundenSerialisierer = new SerialisiererSpy();
+		SenkeSpy kundenQuelle = new SenkeSpy();
 		
-		pizzeria.persistiereKunden(kundenSerialisierer);
+		pizzeria.persistiereKunden(kundenQuelle);
 		
-		assertThat(kundenSerialisierer.wurdeAufgerufen, is(true));
+		assertThat(kundenQuelle.wurdeAufgerufen, is(true));
 	}
 	
 	private Pizzeria neuePizzeriaMitEinemKunden() { 
-		return new Pizzeria(new KundenDeserialisierer() {
+		return new Pizzeria(new KundenQuelle() {
 			@Override
-			public Set<Kunde> deserialisiereKunden() {
+			public Set<Kunde> ladeKunden() {
 				Set<Kunde> kunden = new HashSet<>();
 				kunden.add(new Kunde(""));
 				return kunden;
@@ -36,11 +36,11 @@ public class PizzeriaPersistenzTest {
 		});
 	}
 	
-	class SerialisiererSpy implements KundenSerialisierer {
+	class SenkeSpy implements KundenSenke {
 		boolean wurdeAufgerufen = false;
 
 		@Override
-		public void serialisiereKunden(Set<Kunde> kunden) {
+		public void speichereKunden(Set<Kunde> kunden) {
 			wurdeAufgerufen = true;
 		}
 	}

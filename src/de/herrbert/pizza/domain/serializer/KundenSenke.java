@@ -4,8 +4,8 @@ import java.util.Set;
 
 import de.herrbert.pizza.domain.Kunde;
 
-public interface KundenSerialisierer {
+public interface KundenSenke {
 
-	public abstract void serialisiereKunden(Set<Kunde> kunden);
+	public abstract void speichereKunden(Set<Kunde> kunden);
 
 }

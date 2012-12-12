@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import de.herrbert.pizza.controller.Pizzeria;
-import de.herrbert.pizza.domain.serializer.KundenSerialisiererImpl;
+import de.herrbert.pizza.domain.serializer.KundenSenkeImpl;
 
 final class WindowClosingHandler extends WindowAdapter {
 	private final Pizzeria pizzeria;
@@ -19,7 +19,7 @@ final class WindowClosingHandler extends WindowAdapter {
 	@Override
 	public void windowClosing(WindowEvent e) {
 		try {
-			pizzeria.persistiereKunden(new KundenSerialisiererImpl(new ObjectOutputStream(new FileOutputStream("kunden.dat"))));
+			pizzeria.persistiereKunden(new KundenSenkeImpl(new ObjectOutputStream(new FileOutputStream("kunden.dat"))));
 			System.exit(0);
 		} catch (IOException exception) {
 			exception.printStackTrace();

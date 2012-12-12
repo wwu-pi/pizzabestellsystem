@@ -6,16 +6,16 @@ import java.util.Set;
 
 import de.herrbert.pizza.domain.Kunde;
 
-public class KundenSerialisiererImpl implements KundenSerialisierer {
+public class KundenSenkeImpl implements KundenSenke {
 
 	private ObjectOutput kundenOutput;
 
-	public KundenSerialisiererImpl(ObjectOutput kundenOutput) {
+	public KundenSenkeImpl(ObjectOutput kundenOutput) {
 		this.kundenOutput = kundenOutput;
 	}
 
 	@Override
-	public void serialisiereKunden(Set<Kunde> kunden) {
+	public void speichereKunden(Set<Kunde> kunden) {
 		try {
 			for (Kunde kunde : kunden) {
 				kundenOutput.writeObject(kunde);

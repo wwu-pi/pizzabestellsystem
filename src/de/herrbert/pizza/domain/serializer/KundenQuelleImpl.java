@@ -8,15 +8,15 @@ import java.util.Set;
 
 import de.herrbert.pizza.domain.Kunde;
 
-public class KundenDeserialisiererImpl implements KundenDeserialisierer {
+public class KundenQuelleImpl implements KundenQuelle {
 
 	private final ObjectInput kundenInput;
 	
-	public KundenDeserialisiererImpl(ObjectInput kundenInput) {
+	public KundenQuelleImpl(ObjectInput kundenInput) {
 		this.kundenInput = kundenInput;
 	}
 
-	public Set<Kunde> deserialisiereKunden() {
+	public Set<Kunde> ladeKunden() {
 		final Set<Kunde> kunden = new HashSet<>();
 		try {
 			while (true) {

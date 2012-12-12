@@ -16,13 +16,13 @@ import static org.hamcrest.CoreMatchers.is;
 
 import static org.junit.Assert.*;
 
-public class KundenDeserialisiererImplTest {
+public class KundenQuelleImplTest {
 
 	@Test
-	public void sollteKundenDeserialisierenKoennen() throws IOException {
+	public void sollteKundenLadenKoennen() throws IOException {
 		ObjectInput oi = bereiteInputMitZweiKundenVor();
-		KundenDeserialisierer deserialisierer = new KundenDeserialisiererImpl(oi);
-		assertThat(deserialisierer.deserialisiereKunden().size(), is(2));
+		KundenQuelle quelle = new KundenQuelleImpl(oi);
+		assertThat(quelle.ladeKunden().size(), is(2));
 	}
 
 	private ObjectInput bereiteInputMitZweiKundenVor() throws IOException {

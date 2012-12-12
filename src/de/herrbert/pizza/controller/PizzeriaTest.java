@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
 
 import de.herrbert.pizza.domain.Kunde;
-import de.herrbert.pizza.domain.serializer.KundenDeserialisierer;
+import de.herrbert.pizza.domain.serializer.KundenQuelle;
 
 import static org.junit.Assert.*;
 
@@ -25,9 +25,9 @@ public class PizzeriaTest {
 	}
 
 	private Pizzeria neuePizzeriaMitEinemKunden() {
-		return new Pizzeria(new KundenDeserialisierer() {
+		return new Pizzeria(new KundenQuelle() {
 			@Override
-			public Set<Kunde> deserialisiereKunden() {
+			public Set<Kunde> ladeKunden() {
 				Set<Kunde> kunden = new HashSet<>();
 				kunden.add(new Kunde(TELEFONNUMMER));
 				return kunden;

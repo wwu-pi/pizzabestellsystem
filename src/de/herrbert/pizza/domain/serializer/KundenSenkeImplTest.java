@@ -16,10 +16,10 @@ import static org.hamcrest.CoreMatchers.not;
 
 import static org.junit.Assert.*;
 
-public class KundenSerialisiererImplTest {
+public class KundenSenkeImplTest {
 
 	@Test
-	public void sollteKundenSerialisierenKoennen() throws IOException {
+	public void sollteKundenSpeichernKoennen() throws IOException {
 		Set<Kunde> kunden = new HashSet<>();
 		kunden.add(new Kunde("1"));
 		kunden.add(new Kunde("2"));
@@ -29,8 +29,8 @@ public class KundenSerialisiererImplTest {
 		
 		// assertTrue(baos.toByteArray().length == 4)
 		
-		KundenSerialisierer serialisierer = new KundenSerialisiererImpl(kundenOutput);
-		serialisierer.serialisiereKunden(kunden);
+		KundenSenke senke = new KundenSenkeImpl(kundenOutput);
+		senke.speichereKunden(kunden);
 		
 		assertThat(baos.toByteArray().length, is(not(4)));
 	}
