@@ -26,9 +26,8 @@ import de.herrbert.pizza.views.command.KundenSucheCommand;
 public class BestellUebersicht extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private CommandListener commandListener;
-	
-	private Pizzeria pizzeria;
+	private final CommandListener commandListener;
+	private final Pizzeria pizzeria;
 
 	private JList<Bestellung> bestellungen;
 	private JButton loeschen;
