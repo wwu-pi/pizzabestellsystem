@@ -14,14 +14,14 @@ import static org.junit.Assert.*;
 
 public class BestellungZeitTest {
 
-	private Date gesetzteZeit = new Date();
+	private static final Date REFERENZ_ZEIT = new Date();
 
 	@Before
 	public void setUp() {
 		Zeitgeber.setStrategy(new Strategy() {
 			@Override
 			public Date getZeit() {
-				return gesetzteZeit;
+				return REFERENZ_ZEIT;
 			}
 		});
 	}
@@ -29,7 +29,8 @@ public class BestellungZeitTest {
 	@Test
 	public void sollteAktuelleZeitVermerken() {
 		Bestellung bestellung = new Kunde("").bestellungAufnehmen();
-		assertThat(bestellung.getZeit(), is(gesetzteZeit ));
+		assertThat(bestellung.getZeit(), is(REFERENZ_ZEIT ));
+	}
 	}
 	
 	@After
