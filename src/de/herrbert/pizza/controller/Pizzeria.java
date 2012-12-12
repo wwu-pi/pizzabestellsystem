@@ -40,9 +40,11 @@ public class Pizzeria {
 	}
 	
 	public Kunde erstelleKunde(String telefonnummer) {
-		Kunde neuerKunde = new Kunde(telefonnummer);
-		addToKunden(neuerKunde);
-		return neuerKunde;
+		return new Kunde(telefonnummer);
+	}
+
+	public void ersetze(Kunde kunde) {
+		addToKunden(kunde);
 	}
 
 	public Set<Bestellung> getAlleBestellungen() {
@@ -52,5 +54,6 @@ public class Pizzeria {
 		}
 		return alleBestellungen;
 	}
+
 
 }
