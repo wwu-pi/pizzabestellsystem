@@ -7,15 +7,15 @@ public class Bestellung implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final Kunde kunde;
 	private final Date zeit;
+	private final Kunde kunde;
 	private String inhalt;
 	private String lieferhinweis;
 
 	public Bestellung(Kunde kunde) {
-		this.kunde = kunde;
 		this.zeit = Zeitgeber.getAktuelleZeit();
-		this.setLieferhinweis(kunde.getLieferhinweis());
+		this.kunde = kunde;
+		this.lieferhinweis = kunde.getLieferhinweis();
 	}
 
 	public void stornieren() {
@@ -24,6 +24,14 @@ public class Bestellung implements Serializable {
 
 	public Date getZeit() {
 		return zeit;
+	}
+	
+	public String getKundenname() {
+		return kunde.getName();
+	}
+	
+	public String getKundenadresse() {
+		return kunde.getAdresse();
 	}
 	
 	public String getInhalt() {
@@ -41,5 +49,6 @@ public class Bestellung implements Serializable {
 	public void setLieferhinweis(String lieferhinweis) {
 		this.lieferhinweis = lieferhinweis;
 	}
+
 
 }

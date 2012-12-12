@@ -1,48 +1,52 @@
 package de.herrbert.pizza.domain;
 
-import java.util.Date;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.herrbert.pizza.domain.Zeitgeber.Strategy;
-
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 import static org.junit.Assert.*;
 
 public class BestellungTest {
-
-	private Date gesetzteZeit = new Date();
+	
+	private static final String KUNDEN_NAME = "Max Mustermann";
+	private static final String ADRESSE = "Adresse";
+	private static final String LIEFERHINWEIS = "Lieferhinweis";
+	private static final String ABWEICHENDER_LIEFERHINWEIS = "Abweichender Lieferhinweis";
+	
+	private Kunde kunde;
+	private Bestellung bestellung;
 
 	@Before
 	public void setUp() {
-		Zeitgeber.setStrategy(new Strategy() {
-			@Override
-			public Date getZeit() {
-				return gesetzteZeit;
-			}
-		});
-	}
-	
-	@Test
-	public void sollteAktuelleZeitVermerken() {
-		Bestellung bestellung = new Kunde("").bestellungAufnehmen();
-		assertThat(bestellung.getZeit(), is(gesetzteZeit ));
+		kunde = new Kunde("");
+		kunde.setName(KUNDEN_NAME);
+		kunde.setAdresse(ADRESSE);
+		kunde.setLieferhinweis(LIEFERHINWEIS);
+		
+		bestellung = kunde.bestellungAufnehmen();
 	}
 	
 	@Test
 	public void sollteLieferhinweisVomKundenUebernehmen() {
-		Kunde kunde = new Kunde("");
-		kunde.setLieferhinweis("asdf");
-		Bestellung bestellung = kunde.bestellungAufnehmen();
 		assertThat(bestellung.getLieferhinweis(), is(kunde.getLieferhinweis()));
 	}
 	
-	@After
-	public void tearDown() {
-		Zeitgeber.resetStrategy();
+	@Test
+	public void sollteLieferhinweisAmKundenUnveraendertLassen() {
+		bestellung.setLieferhinweis(ABWEICHENDER_LIEFERHINWEIS);
+		assertThat(bestellung.getLieferhinweis(), is(not(kunde.getLieferhinweis())));
+	}
+	
+	@Test
+	public void sollteKundennameZurueckgebenKoennen() {
+		assertThat(bestellung.getKundenname(), is(kunde.getName()));
+	}
+	
+	@Test
+	public void sollteKundenadresseZurueckgebenKoennen() {
+		assertThat(bestellung.getKundenadresse(), is(kunde.getAdresse()));
 	}
 
 }
