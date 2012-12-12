@@ -24,6 +24,7 @@ import static java.awt.GridBagConstraints.REMAINDER;
 
 import de.herrbert.pizza.domain.Kunde;
 import de.herrbert.pizza.views.command.CommandListener;
+import de.herrbert.pizza.views.command.NeueBestellungErfassen;
 import de.herrbert.pizza.views.command.ZurUebersichtGehenCommand;
 
 public class Kundenerfassung extends JFrame {
@@ -92,14 +93,14 @@ public class Kundenerfassung extends JFrame {
 			JPanel controlPanel = new JPanel(new BorderLayout(), true);
 			add(controlPanel, BorderLayout.SOUTH);
 			
-			JButton abschliessen = new JButton("Bestellung abschließen");
+			JButton abschliessen = new JButton("Bestellung aufnehmen");
 			abschliessen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
 					kunde.setName(name.getText());
 					kunde.setAdresse(adresse.getText());
 					kunde.setLieferhinweis(lieferhinweis.getText());
-					commandListener.process(new ZurUebersichtGehenCommand());
+					commandListener.process(new NeueBestellungErfassen(kunde));
 				}
 			});
 			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.WEST);
