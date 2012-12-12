@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import de.herrbert.pizza.controller.Pizzeria;
 import de.herrbert.pizza.domain.Bestellung;
-import de.herrbert.pizza.views.Bestellerfassung;
+import de.herrbert.pizza.views.Bestellungsbearbeitung;
 
 
 public class BestellungBearbeitenCommand implements Command {
@@ -21,7 +21,7 @@ public class BestellungBearbeitenCommand implements Command {
 
 	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
-		return new Bestellerfassung(bestellung, commandListener);
+		return new Bestellungsbearbeitung(bestellung, commandListener);
 	}
 
 }

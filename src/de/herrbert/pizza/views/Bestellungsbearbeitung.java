@@ -21,7 +21,7 @@ import de.herrbert.pizza.domain.Bestellung;
 import de.herrbert.pizza.views.command.ZurUebersichtGehenCommand;
 import de.herrbert.pizza.views.command.CommandListener;
 
-public class Bestellerfassung extends JFrame {
+public class Bestellungsbearbeitung extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private Bestellung bestellung;
@@ -30,7 +30,7 @@ public class Bestellerfassung extends JFrame {
 	private JTextArea inhalt;
 	private JTextArea lieferhinweis;
 
-	public Bestellerfassung(Bestellung bestellung, CommandListener commandListener) {
+	public Bestellungsbearbeitung(Bestellung bestellung, CommandListener commandListener) {
 		this.bestellung = bestellung;
 		this.commandListener = commandListener;
 		initialize();
