@@ -9,7 +9,9 @@ import de.herrbert.pizza.views.Bestellerfassung;
 
 public class NeueBestellungErfassen implements Command {
 
-	private Kunde kunde;
+	private final Kunde kunde;
+
+	private Bestellung bestellung;
 
 	public NeueBestellungErfassen(Kunde kunde) {
 		this.kunde = kunde;
@@ -17,13 +19,12 @@ public class NeueBestellungErfassen implements Command {
 
 	@Override
 	public void execute(Pizzeria pizzeria) {
+		pizzeria.ersetze(kunde);
+		bestellung = kunde.bestellungAufnehmen();
 	}
 
 	@Override
-	public JFrame erstelleMaske(Pizzeria pizzeria,
-			CommandListener commandListener) {
-		pizzeria.ersetze(kunde);
-		Bestellung bestellung = kunde.bestellungAufnehmen();
+	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
 		return new Bestellerfassung(bestellung, commandListener);
 	}
 

@@ -9,7 +9,6 @@ public class KundenSucheCommand implements Command {
 
 	@Override
 	public void execute(Pizzeria pizzeria) {
-
 	}
 
 	@Override

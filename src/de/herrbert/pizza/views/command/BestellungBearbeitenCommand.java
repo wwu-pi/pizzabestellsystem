@@ -9,7 +9,7 @@ import de.herrbert.pizza.views.Bestellerfassung;
 
 public class BestellungBearbeitenCommand implements Command {
 
-	private Bestellung bestellung;
+	private final Bestellung bestellung;
 
 	public BestellungBearbeitenCommand(Bestellung bestellung) {
 		this.bestellung = bestellung;
@@ -17,7 +17,6 @@ public class BestellungBearbeitenCommand implements Command {
 
 	@Override
 	public void execute(Pizzeria pizzeria) {
-
 	}
 
 	@Override

@@ -9,7 +9,6 @@ public class ZurUebersichtGehenCommand implements Command {
 
 	@Override
 	public void execute(Pizzeria pizzeria) {
-
 	}
 
 	@Override

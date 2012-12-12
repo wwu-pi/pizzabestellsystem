@@ -10,22 +10,23 @@ public class KundeBearbeitenCommand implements Command {
 
 	private final String telefonnummer;
 
+	private Kunde kunde;
+
 	public KundeBearbeitenCommand(String telefonnummer) {
 		this.telefonnummer = telefonnummer;
 	}
 
 	@Override
 	public void execute(Pizzeria pizzeria) {
-
+		kunde = pizzeria.sucheKunde(telefonnummer);
+		if (kunde == null) {
+			kunde = pizzeria.erstelleKunde(telefonnummer);
+		}
 	}
 
 	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
-		Kunde suchergebnis = pizzeria.sucheKunde(telefonnummer);
-		if (suchergebnis == null) {
-			suchergebnis = pizzeria.erstelleKunde(telefonnummer);
-		}
-		return new Kundenerfassung(suchergebnis, commandListener);
+		return new Kundenerfassung(kunde, commandListener);
 	}
 
 }
