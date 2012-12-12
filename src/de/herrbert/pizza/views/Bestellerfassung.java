@@ -112,6 +112,12 @@ public class Bestellerfassung extends JFrame {
 			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.WEST);
 			
 			JButton abbrechen = new JButton("abbrechen");
+			abbrechen.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent event) {
+					commandListener.process(new ZurUebersichtGehenCommand());
+				}
+			});
 			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.EAST);
 			
 			getRootPane().setDefaultButton(abschliessen);
