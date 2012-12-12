@@ -49,4 +49,11 @@ public class BestellungTest {
 		assertThat(bestellung.getKundenadresse(), is(kunde.getAdresse()));
 	}
 
+	@Test
+	public void sollteDatumZeitUndKundennamePerToStringAnzeigenKoennen() {
+		String format = "^\\d{2}[.]\\d{2}[.]\\d{4} / \\d{2}:\\d{2}:\\d{2} / .*";
+		assertThat(bestellung.toString().matches(format), is(true));
+		assertThat(bestellung.toString().endsWith(KUNDEN_NAME), is(true));
+	}
+
 }

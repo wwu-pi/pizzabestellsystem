@@ -1,6 +1,7 @@
 package de.herrbert.pizza.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Bestellung implements Serializable {
@@ -50,5 +51,10 @@ public class Bestellung implements Serializable {
 		this.lieferhinweis = lieferhinweis;
 	}
 
+	@Override
+	public String toString() {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy / HH:mm:ss");
+		return formatter.format(getZeit()) + " / " + getKundenname();
+	}
 
 }
