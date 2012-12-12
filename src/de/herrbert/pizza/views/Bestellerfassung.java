@@ -26,14 +26,10 @@ public class Bestellerfassung extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private Bestellung bestellung;
+	private CommandListener commandListener;
 
 	private JTextArea inhalt;
-
 	private JTextArea lieferhinweis;
-
-	private JButton abschliessen;
-
-	private CommandListener commandListener;
 
 	public Bestellerfassung(Bestellung bestellung, CommandListener commandListener) {
 		this.bestellung = bestellung;
@@ -100,7 +96,7 @@ public class Bestellerfassung extends JFrame {
 			JPanel controlPanel = new JPanel(new BorderLayout(), true);
 			add(controlPanel, BorderLayout.SOUTH);
 			
-			abschliessen = new JButton("Bestellung abschließen");
+			JButton abschliessen = new JButton("Bestellung abschließen");
 			abschliessen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
