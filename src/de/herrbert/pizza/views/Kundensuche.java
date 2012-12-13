@@ -45,7 +45,7 @@ public class Kundensuche extends JFrame {
 			constraints.insets = new Insets(2, 5, 2, 5);
 			
 			constraints.gridwidth = REMAINDER;
-			telefonnummer = new JTextField("+251", 30);
+			telefonnummer = new JTextField("+49251", 25);
 			datenPanel.add(telefonnummer, constraints);
 			
 			add(BorderLayout.CENTER, datenPanel);
