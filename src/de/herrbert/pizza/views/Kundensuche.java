@@ -33,7 +33,7 @@ public class Kundensuche extends JFrame {
 	}
 
 	private void initialize() {
-		setTitle("Bestelldaten");
+		setTitle("Kundensuche");
 		setLayout(new BorderLayout());
 		
 		{
