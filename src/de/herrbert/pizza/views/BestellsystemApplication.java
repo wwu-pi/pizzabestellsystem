@@ -1,5 +1,9 @@
 package de.herrbert.pizza.views;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,6 +12,7 @@ import javax.swing.JFrame;
 import de.herrbert.pizza.controller.Pizzeria;
 import de.herrbert.pizza.domain.Kunde;
 import de.herrbert.pizza.domain.serializer.KundenQuelle;
+import de.herrbert.pizza.domain.serializer.KundenQuelleImpl;
 import de.herrbert.pizza.views.command.Command;
 import de.herrbert.pizza.views.command.CommandListener;
 
@@ -41,8 +46,21 @@ public class BestellsystemApplication implements CommandListener {
 	}
 	
 	public static void main(String[] args) {
-		BestellsystemApplication app = new BestellsystemApplication(pizzeriaMitFuenfKunden());
+		BestellsystemApplication app = new BestellsystemApplication(ladePizzeriaFallsVorhanden());
 		app.start();
+	}
+
+	private static Pizzeria ladePizzeriaFallsVorhanden() {
+		File kundenDatei = new File("kunden.dat");
+		if (kundenDatei.exists()) {
+			try {
+				return new Pizzeria(new KundenQuelleImpl(new ObjectInputStream(new FileInputStream(kundenDatei))));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return pizzeriaMitFuenfKunden();
 	}
 	
 	private static Pizzeria pizzeriaMitFuenfKunden() {
