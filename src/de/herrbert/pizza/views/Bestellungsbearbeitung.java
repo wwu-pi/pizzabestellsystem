@@ -106,7 +106,7 @@ public class Bestellungsbearbeitung extends JFrame {
 					commandListener.process(new ZurUebersichtGehenCommand());
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.WEST);
+			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.EAST);
 			
 			abbrechen = new JButton("abbrechen");
 			abbrechen.addActionListener(new ActionListener() {
@@ -115,7 +115,7 @@ public class Bestellungsbearbeitung extends JFrame {
 					commandListener.process(new ZurUebersichtGehenCommand());
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.WEST);
 			
 			getRootPane().setDefaultButton(abschliessen);
 		}

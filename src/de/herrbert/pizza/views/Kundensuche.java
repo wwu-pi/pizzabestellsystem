@@ -62,7 +62,7 @@ public class Kundensuche extends JFrame {
 					commandListener.process(new KundeBearbeitenCommand(telefonnummer.getText()));
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(kundeSuchen), BorderLayout.WEST);
+			controlPanel.add(flowLayoutPanelWith(kundeSuchen), BorderLayout.EAST);
 			getRootPane().setDefaultButton(kundeSuchen);
 			
 			JButton abbrechen = new JButton("abbrechen");
@@ -72,7 +72,7 @@ public class Kundensuche extends JFrame {
 					commandListener.process(new ZurUebersichtGehenCommand());
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.WEST);
 		}
 		
 		pack();

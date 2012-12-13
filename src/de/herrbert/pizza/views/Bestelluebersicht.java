@@ -68,7 +68,7 @@ public class Bestelluebersicht extends JFrame {
 					commandListener.process(new KundenSucheCommand());
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(neueBestellungButton), BorderLayout.WEST);
+			controlPanel.add(flowLayoutPanelWith(neueBestellungButton), BorderLayout.EAST);
 			getRootPane().setDefaultButton(neueBestellungButton);
 		}
 		
@@ -108,7 +108,7 @@ public class Bestelluebersicht extends JFrame {
 				});
 			}
 			
-			controlPanel.add(flowLayoutPanelWith(bearbeiten, stornieren), BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(bearbeiten, stornieren), BorderLayout.WEST);
 		}
 		
 		pack();
