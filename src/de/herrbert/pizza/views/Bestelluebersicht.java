@@ -9,6 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
@@ -88,12 +89,21 @@ public class Bestelluebersicht extends JFrame {
 			{
 				stornieren = new JButton("stornieren");
 				stornieren.setEnabled(false);
+				final JFrame thisFrame = this;
 				stornieren.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						if (confirmStornieren() == JOptionPane.CANCEL_OPTION) {
+							return;
+						}
 						bestellungen.getSelectedValue().stornieren();
 						bestellungen.setModel(getBestellungenModel());
 						stelleKorrektenButtonZustandSicher();
+					}
+
+					private int confirmStornieren() {
+						return JOptionPane.showConfirmDialog(thisFrame, "Bestellung löschen?",
+								"Bestellung löschen?", JOptionPane.WARNING_MESSAGE);
 					}
 				});
 			}
