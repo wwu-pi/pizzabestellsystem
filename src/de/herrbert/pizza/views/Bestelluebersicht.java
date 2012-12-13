@@ -23,7 +23,7 @@ import de.herrbert.pizza.views.command.BestellungBearbeitenCommand;
 import de.herrbert.pizza.views.command.CommandListener;
 import de.herrbert.pizza.views.command.KundenSucheCommand;
 
-public class BestellUebersicht extends JFrame {
+public class Bestelluebersicht extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private final CommandListener commandListener;
@@ -33,7 +33,7 @@ public class BestellUebersicht extends JFrame {
 	private JButton loeschen;
 	private JButton bearbeiten;
 	
-	public BestellUebersicht(Pizzeria pizzeria, CommandListener commandListener) {
+	public Bestelluebersicht(Pizzeria pizzeria, CommandListener commandListener) {
 		this.pizzeria = pizzeria;
 		this.commandListener = commandListener;
 		initialize();

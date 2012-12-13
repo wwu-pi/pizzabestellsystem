@@ -3,7 +3,7 @@ package de.herrbert.pizza.views.command;
 import javax.swing.JFrame;
 
 import de.herrbert.pizza.controller.Pizzeria;
-import de.herrbert.pizza.views.BestellUebersicht;
+import de.herrbert.pizza.views.Bestelluebersicht;
 
 public class ZurUebersichtGehenCommand implements Command {
 
@@ -13,7 +13,7 @@ public class ZurUebersichtGehenCommand implements Command {
 
 	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
-		return new BestellUebersicht(pizzeria, commandListener);
+		return new Bestelluebersicht(pizzeria, commandListener);
 	}
 
 }

@@ -20,7 +20,7 @@ public class BestellsystemApplication implements CommandListener {
 	}
 	
 	private void start() {
-		wechseleZu(new BestellUebersicht(pizzeria, this));
+		wechseleZu(new Bestelluebersicht(pizzeria, this));
 	}
 	
 	private void wechseleZu(JFrame neuerMaske) {

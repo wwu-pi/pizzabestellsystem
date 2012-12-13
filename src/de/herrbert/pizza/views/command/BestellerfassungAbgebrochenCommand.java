@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 import de.herrbert.pizza.controller.Pizzeria;
 import de.herrbert.pizza.domain.Bestellung;
-import de.herrbert.pizza.views.BestellUebersicht;
+import de.herrbert.pizza.views.Bestelluebersicht;
 
 public class BestellerfassungAbgebrochenCommand implements Command {
 
@@ -21,7 +21,7 @@ public class BestellerfassungAbgebrochenCommand implements Command {
 
 	@Override
 	public JFrame erstelleMaske(Pizzeria pizzeria, CommandListener commandListener) {
-		return new BestellUebersicht(pizzeria, commandListener);
+		return new Bestelluebersicht(pizzeria, commandListener);
 	}
 
 }
