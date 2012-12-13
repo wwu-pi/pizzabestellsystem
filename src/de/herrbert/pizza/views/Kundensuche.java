@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -44,9 +43,6 @@ public class Kundensuche extends JFrame {
 			GridBagConstraints constraints = new GridBagConstraints();
 			constraints.fill = BOTH;
 			constraints.insets = new Insets(2, 5, 2, 5);
-			
-			constraints.gridwidth = RELATIVE;
-			datenPanel.add(new JLabel("Telefonnummer"), constraints);
 			
 			constraints.gridwidth = REMAINDER;
 			telefonnummer = new JTextField("+251", 30);
