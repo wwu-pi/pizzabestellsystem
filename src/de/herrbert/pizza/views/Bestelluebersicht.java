@@ -30,7 +30,7 @@ public class Bestelluebersicht extends JFrame {
 	private final Pizzeria pizzeria;
 
 	private JList<Bestellung> bestellungen;
-	private JButton loeschen;
+	private JButton stornieren;
 	private JButton bearbeiten;
 	
 	public Bestelluebersicht(Pizzeria pizzeria, CommandListener commandListener) {
@@ -86,9 +86,9 @@ public class Bestelluebersicht extends JFrame {
 			}
 			
 			{
-				loeschen = new JButton("stornieren");
-				loeschen.setEnabled(false);
-				loeschen.addActionListener(new ActionListener() {
+				stornieren = new JButton("stornieren");
+				stornieren.setEnabled(false);
+				stornieren.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						bestellungen.getSelectedValue().stornieren();
@@ -98,7 +98,7 @@ public class Bestelluebersicht extends JFrame {
 				});
 			}
 			
-			controlPanel.add(flowLayoutPanelWith(bearbeiten, loeschen), BorderLayout.EAST);
+			controlPanel.add(flowLayoutPanelWith(bearbeiten, stornieren), BorderLayout.EAST);
 		}
 		
 		pack();
@@ -117,7 +117,7 @@ public class Bestelluebersicht extends JFrame {
 
 	private void stelleKorrektenButtonZustandSicher() {
 		boolean buttonAktivieren = (sindBestellungenVorhanden() && istEineBestellungAusgewaehlt());
-		loeschen.setEnabled(buttonAktivieren);
+		stornieren.setEnabled(buttonAktivieren);
 		bearbeiten.setEnabled(buttonAktivieren);
 	}
 
