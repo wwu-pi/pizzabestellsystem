@@ -93,7 +93,7 @@ public class Bestelluebersicht extends JFrame {
 				stornieren.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						if (confirmStornieren() == JOptionPane.CANCEL_OPTION) {
+						if (confirmStornieren()) {
 							return;
 						}
 						bestellungen.getSelectedValue().stornieren();
@@ -101,9 +101,14 @@ public class Bestelluebersicht extends JFrame {
 						stelleKorrektenButtonZustandSicher();
 					}
 
-					private int confirmStornieren() {
-						return JOptionPane.showConfirmDialog(thisFrame, "Bestellung löschen?",
-								"Bestellung löschen?", JOptionPane.WARNING_MESSAGE);
+					private boolean confirmStornieren() {
+						Object[] options = { "Stornieren", "Abbrechen" };
+						int userChoice = JOptionPane.showOptionDialog(thisFrame,
+								"Bestellung stornieren?", "Bestellung stornieren?",
+								JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+								null, options, options[1]);
+						System.out.println(userChoice);
+						return userChoice == 1;
 					}
 				});
 			}
