@@ -107,7 +107,6 @@ public class Bestelluebersicht extends JFrame {
 								"Bestellung stornieren?", "Bestellung stornieren?",
 								JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
 								null, options, options[1]);
-						System.out.println(userChoice);
 						return userChoice == 1;
 					}
 				});
