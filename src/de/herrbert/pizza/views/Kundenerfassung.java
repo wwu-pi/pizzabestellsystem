@@ -103,7 +103,6 @@ public class Kundenerfassung extends JFrame {
 					commandListener.process(new NeueBestellungErfassen(kunde));
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(abschliessen), BorderLayout.EAST);
 			
 			JButton abbrechen = new JButton("abbrechen");
 			abbrechen.addActionListener(new ActionListener() {
@@ -112,8 +111,7 @@ public class Kundenerfassung extends JFrame {
 					commandListener.process(new ZurUebersichtGehenCommand());
 				}
 			});
-			controlPanel.add(flowLayoutPanelWith(abbrechen), BorderLayout.WEST);
-			
+			controlPanel.add(flowLayoutPanelWith(abschliessen, abbrechen), BorderLayout.EAST);
 			getRootPane().setDefaultButton(abschliessen);
 		}
 		
