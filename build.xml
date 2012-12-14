@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<project name="wwu.or.mac" default="run" basedir=".">
+	<property name="src" location="src" />
+	<property name="bin" location="bin" />
+	<property name="jarname" location="bestellsystem.jar" />
+
+	<target name="cleanUpBeforeCompile">
+		<delete file="${jarname}" />
+	</target>
+
+	<target name="compile" depends="cleanUpBeforeCompile">
+		<javac srcdir="${src}" destdir="${bin}" optimize="yes" />
+	</target>
+
+	<target name="packing" depends="compile">
+		<jar jarfile="${jarname}" manifest="bestellsystem.mf">
+			<fileset dir="${src}" includes="**/*.java" />
+			<fileset dir="${bin}" includes="**/*.*" />
+		</jar>
+	</target>
+
+	<target name="run" depends="packing">
+		<java classname="de.pizza.views.BestellsystemApplication" fork="yes" classpath="${jarname}" />
+	</target>
+
+</project>
