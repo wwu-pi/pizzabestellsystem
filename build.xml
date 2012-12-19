@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 
 <project name="wwu.or.mac" default="package" basedir=".">
+	<property name="group" location="09" />
+
 	<property name="src" location="src" />
 	<property name="bin" location="bin" />
-	<property name="jarname" location="bestellsystem.jar" />
+	<property name="jarname" location="${group}_bestellsystem.jar" />
 
 	<target name="cleanUpBeforeCompile">
 		<delete file="${jarname}" />
