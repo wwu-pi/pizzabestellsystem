@@ -1,26 +1,34 @@
 <?xml version="1.0"?>
 
-<project name="wwu.or.mac" default="package" basedir=".">
+<project name="de.pizza" default="package" basedir=".">
+	<!-- passen Sie diese Property an -->
 	<property name="group" location="09" />
 
 	<property name="src" location="src" />
+
 	<property name="bin" location="bin" />
-	<property name="jarname" location="${group}_bestellsystem.jar" />
+	<property name="jarname" location="${group}_Aufgabe12.jar" />
+	<property name="zipfile" location="${group}_Aufgabe12.zip" />
 
 	<target name="cleanUpBeforeCompile">
 		<delete file="${jarname}" />
+		<delete file="${zipfile}" />
+		<delete dir="bin" includeemptydirs="on" />
 	</target>
 
 	<target name="compile" depends="cleanUpBeforeCompile">
 		<mkdir dir="${bin}"/>
 		<javac srcdir="${src}" destdir="${bin}"
-			optimize="yes" includeantruntime="false" />
+			includeantruntime="false"
+			excludes="**/*Test.java" />
 	</target>
 
 	<target name="package" depends="compile">
 		<jar jarfile="${jarname}" manifest="bestellsystem.mf">
-			<fileset dir="${src}" includes="**/*.java" />
 			<fileset dir="${bin}" includes="**/*.*" />
 		</jar>
+		<zip destfile="${zipfile}">
+			<fileset dir="${src}" includes="**/*.java" />
+		</zip>
 	</target>
 </project>
