@@ -22,7 +22,7 @@ public class NeueBestellungErfassen implements Command {
   public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
     pizzeria.ersetze(kunde);
     bestellDaten = kunde.bestellerfassungStarten();
-    guiHandler.wechseleZu(new Bestellungserfassung(bestellDaten, commandHandler));
+    guiHandler.wechseleZu(this, pizzeria, commandHandler);
   }
 
   @Override

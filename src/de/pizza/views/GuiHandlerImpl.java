@@ -2,6 +2,10 @@ package de.pizza.views;
 
 import javax.swing.JFrame;
 
+import de.pizza.controller.Pizzeria;
+import de.pizza.views.command.Command;
+import de.pizza.views.command.CommandHandler;
+
 
 public class GuiHandlerImpl implements GuiHandler {
 
@@ -22,5 +26,9 @@ public class GuiHandlerImpl implements GuiHandler {
     aktuelleMaske.setLocationRelativeTo(null);
     aktuelleMaske.addWindowListener(windowClosingHandler);
     aktuelleMaske.setVisible(true);
+  }
+
+  public void wechseleZu(Command command, Pizzeria pizzeria, CommandHandler commandHandler) {
+    wechseleZu(command.erstelleMaske(pizzeria, commandHandler));
   }
 }

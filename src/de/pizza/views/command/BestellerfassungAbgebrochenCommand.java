@@ -13,7 +13,7 @@ public class BestellerfassungAbgebrochenCommand implements Command {
 
   @Override
   public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
-    guiHandler.wechseleZu(new Bestelluebersicht(pizzeria, commandHandler));
+    guiHandler.wechseleZu(this, pizzeria, commandHandler);
   }
 
   @Override

@@ -18,7 +18,7 @@ public class BestellungBearbeitenCommand implements Command {
 
   @Override
   public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
-    guiHandler.wechseleZu(new Bestellungsbearbeitung(bestellung, commandHandler));
+    guiHandler.wechseleZu(this, pizzeria, commandHandler);
   }
 
   @Override

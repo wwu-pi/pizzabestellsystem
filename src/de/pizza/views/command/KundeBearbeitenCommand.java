@@ -23,7 +23,7 @@ public class KundeBearbeitenCommand implements Command {
     if (kunde == null) {
       kunde = pizzeria.erstelleKunde(telefonnummer);
     }
-    guiHandler.wechseleZu(new Kundenerfassung(kunde, commandHandler));
+    guiHandler.wechseleZu(this, pizzeria, commandHandler);
   }
 
   @Override
