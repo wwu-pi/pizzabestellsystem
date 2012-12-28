@@ -7,8 +7,6 @@ import java.io.ObjectInputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.swing.JFrame;
-
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.Kunde;
 import de.pizza.domain.serializer.KundenQuelle;
@@ -17,36 +15,28 @@ import de.pizza.views.command.Command;
 import de.pizza.views.command.CommandHandler;
 
 public class BestellsystemApplication implements CommandHandler {
-  private JFrame aktuelleMaske = new JFrame("empty");
   private Pizzeria pizzeria;
+  private GuiHandler guiHandler;
 
-  public BestellsystemApplication(Pizzeria pizzeria) {
+  public BestellsystemApplication(Pizzeria pizzeria, GuiHandler guiHandler) {
     this.pizzeria = pizzeria;
+    this.guiHandler = guiHandler;
   }
 
   private void start() {
-    wechseleZu(new Bestelluebersicht(pizzeria, this));
-  }
-
-  private void wechseleZu(JFrame neuerMaske) {
-    aktuelleMaske.setVisible(false);
-    aktuelleMaske.dispose();
-
-    aktuelleMaske = neuerMaske;
-
-    aktuelleMaske.setLocationRelativeTo(null);
-    aktuelleMaske.addWindowListener(new WindowClosingHandler(pizzeria));
-    aktuelleMaske.setVisible(true);
+    guiHandler.wechseleZu(new Bestelluebersicht(pizzeria, this));
   }
 
   @Override
   public void process(Command command) {
     command.execute(pizzeria);
-    wechseleZu(command.erstelleMaske(pizzeria, this));
+    guiHandler.wechseleZu(command.erstelleMaske(pizzeria, this));
   }
 
   public static void main(String[] args) {
-    BestellsystemApplication app = new BestellsystemApplication(ladePizzeriaFallsVorhanden());
+    Pizzeria pizzeria = ladePizzeriaFallsVorhanden();
+    GuiHandler guiHandler = new GuiHandlerImpl(pizzeria);
+    BestellsystemApplication app = new BestellsystemApplication(pizzeria, guiHandler);
     app.start();
   }
 

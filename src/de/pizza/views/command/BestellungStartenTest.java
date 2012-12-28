@@ -14,11 +14,11 @@ public class BestellungStartenTest {
 
   @Test
   public void sollteBestellungNichtVorDemErfassenAnlegen() {
-    Pizzeria mock = Mockito.mock(Pizzeria.class);
+    Pizzeria pizzeria = Mockito.mock(Pizzeria.class);
     Kunde kunde = new Kunde("");
     Command command = new NeueBestellungErfassen(kunde);
 
-    command.execute(mock);
+    command.execute(pizzeria);
 
     assertThat(kunde.getBestellungen().isEmpty(), is(true));
   }
