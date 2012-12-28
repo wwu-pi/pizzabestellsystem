@@ -7,13 +7,13 @@ import de.pizza.views.Kundensuche;
 
 public class KundenSucheCommand implements Command {
 
-	@Override
-	public void execute(Pizzeria pizzeria) {
-	}
+  @Override
+  public void execute(Pizzeria pizzeria) {
+  }
 
-	@Override
-	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler) {
-		return new Kundensuche(commandHandler);
-	}
+  @Override
+  public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler) {
+    return new Kundensuche(commandHandler);
+  }
 
 }

@@ -17,16 +17,16 @@ public class BestellungStartenTest {
     Pizzeria mock = Mockito.mock(Pizzeria.class);
     Kunde kunde = new Kunde("");
     Command command = new NeueBestellungErfassen(kunde);
-    
+
     command.execute(mock);
-    
+
     assertThat(kunde.getBestellungen().isEmpty(), is(true));
   }
-  
+
   @Test
   public void sollteBestellungDtoAnlegen() {
-    
-     
+
+
   }
 
 }

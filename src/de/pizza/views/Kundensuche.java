@@ -21,63 +21,63 @@ import static java.awt.GridBagConstraints.*;
 import static de.pizza.views.UiUtils.*;
 
 public class Kundensuche extends JFrame {
-	private static final long serialVersionUID = 1L;
-	
-	private CommandHandler commandListener;
+  private static final long serialVersionUID = 1L;
 
-	private JTextField telefonnummer;
+  private CommandHandler commandListener;
 
-	public Kundensuche(CommandHandler commandHandler) {
-		this.commandListener = commandHandler;
-		initialize();
-	}
+  private JTextField telefonnummer;
 
-	private void initialize() {
-		setTitle("Kundensuche");
-		setLayout(new BorderLayout());
-		
-		{
-			GridBagLayout gridBagLayout = new GridBagLayout();
-			JPanel datenPanel = new JPanel(gridBagLayout);
-			
-			GridBagConstraints constraints = new GridBagConstraints();
-			constraints.fill = BOTH;
-			constraints.insets = new Insets(2, 5, 2, 5);
-			
-			constraints.gridwidth = REMAINDER;
-			telefonnummer = new JTextField("+49251", 25);
-			datenPanel.add(telefonnummer, constraints);
-			
-			add(BorderLayout.CENTER, datenPanel);
-		}
-		
-		{
-			JPanel controlPanel = new JPanel(new BorderLayout(), true);
-			add(controlPanel, BorderLayout.SOUTH);
-			
-			JButton kundeSuchen = new JButton("Kunde suchen");
-			kundeSuchen.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent event) {
-					commandListener.process(new KundeBearbeitenCommand(telefonnummer.getText()));
-				}
-			});
-			
-			JButton abbrechen = new JButton("abbrechen");
-			abbrechen.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent event) {
-					commandListener.process(new ZurUebersichtGehenCommand());
-				}
-			});
-			controlPanel.add(flowLayoutPanelWith(kundeSuchen, abbrechen), BorderLayout.EAST);
-			getRootPane().setDefaultButton(kundeSuchen);
-		}
-		
-		pack();
-		Dimension minimumSize = getSize();
-		setMinimumSize(minimumSize);
-		setLocationRelativeTo(null);
-	}
+  public Kundensuche(CommandHandler commandHandler) {
+    this.commandListener = commandHandler;
+    initialize();
+  }
+
+  private void initialize() {
+    setTitle("Kundensuche");
+    setLayout(new BorderLayout());
+
+    {
+      GridBagLayout gridBagLayout = new GridBagLayout();
+      JPanel datenPanel = new JPanel(gridBagLayout);
+
+      GridBagConstraints constraints = new GridBagConstraints();
+      constraints.fill = BOTH;
+      constraints.insets = new Insets(2, 5, 2, 5);
+
+      constraints.gridwidth = REMAINDER;
+      telefonnummer = new JTextField("+49251", 25);
+      datenPanel.add(telefonnummer, constraints);
+
+      add(BorderLayout.CENTER, datenPanel);
+    }
+
+    {
+      JPanel controlPanel = new JPanel(new BorderLayout(), true);
+      add(controlPanel, BorderLayout.SOUTH);
+
+      JButton kundeSuchen = new JButton("Kunde suchen");
+      kundeSuchen.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent event) {
+          commandListener.process(new KundeBearbeitenCommand(telefonnummer.getText()));
+        }
+      });
+
+      JButton abbrechen = new JButton("abbrechen");
+      abbrechen.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent event) {
+          commandListener.process(new ZurUebersichtGehenCommand());
+        }
+      });
+      controlPanel.add(flowLayoutPanelWith(kundeSuchen, abbrechen), BorderLayout.EAST);
+      getRootPane().setDefaultButton(kundeSuchen);
+    }
+
+    pack();
+    Dimension minimumSize = getSize();
+    setMinimumSize(minimumSize);
+    setLocationRelativeTo(null);
+  }
 
 }

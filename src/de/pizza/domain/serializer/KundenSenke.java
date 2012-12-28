@@ -6,6 +6,6 @@ import de.pizza.domain.Kunde;
 
 public interface KundenSenke {
 
-	public abstract void speichereKunden(Set<Kunde> kunden);
+  public abstract void speichereKunden(Set<Kunde> kunden);
 
 }

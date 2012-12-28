@@ -6,8 +6,8 @@ import de.pizza.controller.Pizzeria;
 
 public interface Command {
 
-	void execute(Pizzeria pizzeria);
+  void execute(Pizzeria pizzeria);
 
-	JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler);
+  JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler);
 
 }

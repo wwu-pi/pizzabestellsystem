@@ -15,34 +15,34 @@ import static org.junit.Assert.*;
 
 public class PizzeriaPersistenzTest {
 
-	@Test
-	public void sollteLadenUndSpeichernKoennen() {
-		Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
-		SenkeSpy kundenQuelle = new SenkeSpy();
-		
-		pizzeria.persistiereKunden(kundenQuelle);
-		
-		assertThat(kundenQuelle.wurdeAufgerufen, is(true));
-	}
-	
-	private Pizzeria neuePizzeriaMitEinemKunden() { 
-		return new Pizzeria(new KundenQuelle() {
-			@Override
-			public Set<Kunde> ladeKunden() {
-				Set<Kunde> kunden = new HashSet<>();
-				kunden.add(new Kunde(""));
-				return kunden;
-			}
-		});
-	}
-	
-	class SenkeSpy implements KundenSenke {
-		boolean wurdeAufgerufen = false;
+  @Test
+  public void sollteLadenUndSpeichernKoennen() {
+    Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
+    SenkeSpy kundenQuelle = new SenkeSpy();
 
-		@Override
-		public void speichereKunden(Set<Kunde> kunden) {
-			wurdeAufgerufen = true;
-		}
-	}
+    pizzeria.persistiereKunden(kundenQuelle);
+
+    assertThat(kundenQuelle.wurdeAufgerufen, is(true));
+  }
+
+  private Pizzeria neuePizzeriaMitEinemKunden() {
+    return new Pizzeria(new KundenQuelle() {
+      @Override
+      public Set<Kunde> ladeKunden() {
+        Set<Kunde> kunden = new HashSet<>();
+        kunden.add(new Kunde(""));
+        return kunden;
+      }
+    });
+  }
+
+  class SenkeSpy implements KundenSenke {
+    boolean wurdeAufgerufen = false;
+
+    @Override
+    public void speichereKunden(Set<Kunde> kunden) {
+      wurdeAufgerufen = true;
+    }
+  }
 
 }

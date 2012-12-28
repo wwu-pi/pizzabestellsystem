@@ -6,6 +6,6 @@ import de.pizza.domain.Kunde;
 
 public interface KundenQuelle {
 
-	public abstract Set<Kunde> ladeKunden();
+  public abstract Set<Kunde> ladeKunden();
 
 }

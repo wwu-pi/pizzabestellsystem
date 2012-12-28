@@ -27,7 +27,7 @@ import de.pizza.views.command.BestellerfassungAbgeschlossenCommand;
 import de.pizza.views.command.CommandHandler;
 
 public class Bestellungserfassung extends JFrame {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
   protected BestellDaten bestellDaten;
   protected CommandHandler commandHandler;

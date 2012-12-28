@@ -15,39 +15,39 @@ import static org.junit.Assert.*;
 
 public class BestellungZeitTest {
 
-	private static Date REFERENZ_ZEIT = new Date();
+  private static Date REFERENZ_ZEIT = new Date();
 
-	@Before
-	public void setUp() {
-		Zeitgeber.setStrategy(new Strategy() {
-			@Override
-			public Date getZeit() {
-				return REFERENZ_ZEIT;
-			}
-		});
-	}
+  @Before
+  public void setUp() {
+    Zeitgeber.setStrategy(new Strategy() {
+      @Override
+      public Date getZeit() {
+        return REFERENZ_ZEIT;
+      }
+    });
+  }
 
-	@Test
-	public void sollteBestellungAnhandIhrerZeitVergleichenKoennen() {
-		Kunde kunde = new Kunde("");
-		Bestellung bestellung = new Bestellung(kunde.bestellerfassungStarten());
+  @Test
+  public void sollteBestellungAnhandIhrerZeitVergleichenKoennen() {
+    Kunde kunde = new Kunde("");
+    Bestellung bestellung = new Bestellung(kunde.bestellerfassungStarten());
 
-		Zeitgeber.setStrategy(new Strategy() {
-			@Override
-			public Date getZeit() {
-				return new Date(REFERENZ_ZEIT.getTime() + 1);
-			}
-		});
+    Zeitgeber.setStrategy(new Strategy() {
+      @Override
+      public Date getZeit() {
+        return new Date(REFERENZ_ZEIT.getTime() + 1);
+      }
+    });
 
-		Bestellung neuereBestellung = new Bestellung(kunde.bestellerfassungStarten());
-	
-		Comparator<Bestellung> comparator = new BestellungZeitComparator();
-		assertThat(comparator.compare(bestellung, neuereBestellung), is(1));
-	}
+    Bestellung neuereBestellung = new Bestellung(kunde.bestellerfassungStarten());
 
-	@After
-	public void tearDown() {
-		Zeitgeber.resetStrategy();
-	}
+    Comparator<Bestellung> comparator = new BestellungZeitComparator();
+    assertThat(comparator.compare(bestellung, neuereBestellung), is(1));
+  }
+
+  @After
+  public void tearDown() {
+    Zeitgeber.resetStrategy();
+  }
 
 }
