@@ -29,8 +29,7 @@ public class BestellsystemApplication implements CommandHandler {
 
   @Override
   public void process(Command command) {
-    command.execute(pizzeria);
-    guiHandler.wechseleZu(command.erstelleMaske(pizzeria, this));
+    command.execute(pizzeria, this, guiHandler);
   }
 
   public static void main(String[] args) {

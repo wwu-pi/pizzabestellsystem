@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.Kunde;
+import de.pizza.views.GuiHandler;
 import de.pizza.views.Kundenerfassung;
 
 public class KundeBearbeitenCommand implements Command {
@@ -17,11 +18,12 @@ public class KundeBearbeitenCommand implements Command {
   }
 
   @Override
-  public void execute(Pizzeria pizzeria) {
+  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
     kunde = pizzeria.sucheKunde(telefonnummer);
     if (kunde == null) {
       kunde = pizzeria.erstelleKunde(telefonnummer);
     }
+    guiHandler.wechseleZu(new Kundenerfassung(kunde, commandHandler));
   }
 
   @Override

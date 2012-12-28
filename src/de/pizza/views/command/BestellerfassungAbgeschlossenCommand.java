@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.BestellDaten;
 import de.pizza.views.Bestelluebersicht;
+import de.pizza.views.GuiHandler;
 
 public class BestellerfassungAbgeschlossenCommand implements Command {
 
@@ -15,8 +16,9 @@ public class BestellerfassungAbgeschlossenCommand implements Command {
   }
 
   @Override
-  public void execute(Pizzeria pizzeria) {
+  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
     bestellDaten.bestellungAufnehmen();
+    guiHandler.wechseleZu(new Bestelluebersicht(pizzeria, commandHandler));
   }
 
   @Override
