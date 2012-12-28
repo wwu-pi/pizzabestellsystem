@@ -8,6 +8,6 @@ public interface Command {
 
 	void execute(Pizzeria pizzeria);
 
-	JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandListener);
+	JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler);
 
 }

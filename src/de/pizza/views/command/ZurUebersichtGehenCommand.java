@@ -12,8 +12,8 @@ public class ZurUebersichtGehenCommand implements Command {
 	}
 
 	@Override
-	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandListener) {
-		return new Bestelluebersicht(pizzeria, commandListener);
+	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler) {
+		return new Bestelluebersicht(pizzeria, commandHandler);
 	}
 
 }

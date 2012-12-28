@@ -12,8 +12,8 @@ public class KundenSucheCommand implements Command {
 	}
 
 	@Override
-	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandListener) {
-		return new Kundensuche(commandListener);
+	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler) {
+		return new Kundensuche(commandHandler);
 	}
 
 }

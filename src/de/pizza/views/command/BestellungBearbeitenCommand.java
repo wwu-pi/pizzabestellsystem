@@ -20,8 +20,8 @@ public class BestellungBearbeitenCommand implements Command {
 	}
 
 	@Override
-	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandListener) {
-		return new Bestellungsbearbeitung(bestellung, commandListener);
+	public JFrame erstelleMaske(Pizzeria pizzeria, CommandHandler commandHandler) {
+		return new Bestellungsbearbeitung(bestellung, commandHandler);
 	}
 
 }
