@@ -21,6 +21,7 @@ import static de.pizza.views.UiUtils.flowLayoutPanelWith;
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.Bestellung;
 import de.pizza.views.command.BestellungBearbeitenCommand;
+import de.pizza.views.command.BestellungStornierenCommand;
 import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.KundenSucheCommand;
 
@@ -96,7 +97,8 @@ public class Bestelluebersicht extends JFrame {
             if (confirmStornieren()) {
               return;
             }
-            bestellungen.getSelectedValue().stornieren();
+            Bestellung ausgewaehlteBestellung = bestellungen.getSelectedValue();
+            commandHandler.process(new BestellungStornierenCommand(ausgewaehlteBestellung));
             bestellungen.setModel(getBestellungenModel());
             stelleKorrektenButtonZustandSicher();
           }
