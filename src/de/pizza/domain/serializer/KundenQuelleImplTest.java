@@ -42,7 +42,7 @@ public class KundenQuelleImplTest {
 
 	private Kunde erstelleKundeMitEinerBestellungUnd(String telefonnummer) {
 		Kunde kundeMitEinerBestellung = new Kunde(telefonnummer);
-		kundeMitEinerBestellung.bestellungAufnehmen();
+		kundeMitEinerBestellung.bestellerfassungStarten().bestellungAufnehmen();
 		return kundeMitEinerBestellung;
 	}
 

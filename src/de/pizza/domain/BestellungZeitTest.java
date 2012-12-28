@@ -26,17 +26,11 @@ public class BestellungZeitTest {
 			}
 		});
 	}
-	
-	@Test
-	public void sollteAktuelleZeitVermerken() {
-		Bestellung bestellung = new Kunde("").bestellungAufnehmen();
-		assertThat(bestellung.getZeit(), is(REFERENZ_ZEIT ));
-	}
 
 	@Test
 	public void sollteBestellungAnhandIhrerZeitVergleichenKoennen() {
 		Kunde kunde = new Kunde("");
-		Bestellung bestellung = kunde.bestellungAufnehmen();
+		Bestellung bestellung = new Bestellung(kunde.bestellerfassungStarten());
 
 		Zeitgeber.setStrategy(new Strategy() {
 			@Override
@@ -45,7 +39,7 @@ public class BestellungZeitTest {
 			}
 		});
 
-		Bestellung neuereBestellung = kunde.bestellungAufnehmen();
+		Bestellung neuereBestellung = new Bestellung(kunde.bestellerfassungStarten());
 	
 		Comparator<Bestellung> comparator = new BestellungZeitComparator();
 		assertThat(comparator.compare(bestellung, neuereBestellung), is(1));

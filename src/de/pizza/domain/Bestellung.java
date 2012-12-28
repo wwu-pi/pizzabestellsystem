@@ -8,21 +8,28 @@ public class Bestellung implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static final SimpleDateFormat ZEIT_FORMAT = new SimpleDateFormat("dd.MM.yyyy / HH:mm:ss");
+	static final SimpleDateFormat ZEIT_FORMAT = new SimpleDateFormat("dd.MM.yyyy / HH:mm:ss");
 
 	private final Date zeit;
 	private final Kunde kunde;
 	private String inhalt = "";
 	private String lieferhinweis;
 
-
-	public Bestellung(Kunde kunde) {
+  @Deprecated
+	Bestellung(Kunde kunde) {
 		this.zeit = Zeitgeber.getAktuelleZeit();
 		this.kunde = kunde;
 		this.lieferhinweis = kunde.getLieferhinweis();
 	}
 
-	public void stornieren() {
+	Bestellung(BestellDaten daten) {
+      this.zeit = daten.zeit;
+      this.kunde = daten.kunde;
+      this.inhalt = daten.inhalt;
+      this.lieferhinweis = daten.lieferhinweis;
+  }
+
+  public void stornieren() {
 		kunde.removeBestellung(this);
 	}
 

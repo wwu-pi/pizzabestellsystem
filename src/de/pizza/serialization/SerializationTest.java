@@ -29,7 +29,7 @@ public class SerializationTest {
 	@Test
 	public void sollteKundenInklusiveBestellungenSerialisierenKoennen() throws IOException, ClassNotFoundException {
 		Kunde kundeMitEinerBestellung = new Kunde(DUMMY_NUMMER);
-		kundeMitEinerBestellung.bestellungAufnehmen();
+		kundeMitEinerBestellung.bestellerfassungStarten().bestellungAufnehmen();
 		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		ObjectOutputStream oos =  new ObjectOutputStream(baos);

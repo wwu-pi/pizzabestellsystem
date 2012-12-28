@@ -18,19 +18,20 @@ public class KundeTest {
 	}
 	
 	@Test
-	public void sollteBestellungAnlegenKoennen() {
-		assertThat(kunde.bestellungAufnehmen(), is(Bestellung.class));
+	public void sollteBestellErfassungStarten() {
+		assertThat(kunde.bestellerfassungStarten(), is(BestellDaten.class));
 	}
 	
 	@Test
 	public void sollteBestellungenVermerken() {
-		kunde.bestellungAufnehmen();
+		kunde.bestellerfassungStarten().bestellungAufnehmen();
 		assertThat(kunde.getBestellungen().size(), is(1));
 	}
 	
 	@Test
 	public void sollteBestellungStornierenKoennen() {
-		Bestellung bestellung = kunde.bestellungAufnehmen();
+    kunde.bestellerfassungStarten().bestellungAufnehmen();
+		Bestellung bestellung = kunde.getBestellungen().iterator().next();
 		bestellung.stornieren();
 		assertThat(kunde.getBestellungen().isEmpty(), is(true));
 	}

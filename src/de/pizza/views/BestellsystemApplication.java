@@ -71,7 +71,7 @@ public class BestellsystemApplication implements CommandHandler {
 				for (int i = 0; i < 5; i++) {
 					Kunde kunde = new Kunde("" + i);
 					kunde.setName("" + i + ". Kunde");
-					kunde.bestellungAufnehmen();
+					kunde.bestellerfassungStarten().bestellungAufnehmen();
 					kunden.add(kunde);
 				}
 				return kunden;

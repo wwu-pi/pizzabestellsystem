@@ -4,7 +4,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +26,7 @@ public class BestellungTest {
 		kunde.setAdresse(ADRESSE);
 		kunde.setLieferhinweis(LIEFERHINWEIS);
 		
-		bestellung = kunde.bestellungAufnehmen();
+		bestellung = new Bestellung(kunde.bestellerfassungStarten());
 	}
 
 	@Test
@@ -38,17 +37,17 @@ public class BestellungTest {
 	@Test
 	public void sollteLieferhinweisAmKundenUnveraendertLassen() {
 		bestellung.setLieferhinweis(ABWEICHENDER_LIEFERHINWEIS);
-		assertThat(bestellung.getLieferhinweis(), is(not(kunde.getLieferhinweis())));
+		assertThat(kunde.getLieferhinweis(), is(LIEFERHINWEIS));
 	}
 
 	@Test
 	public void sollteKundennameZurueckgebenKoennen() {
-		assertThat(bestellung.getKundenname(), is(kunde.getName()));
+		assertThat(bestellung.getKundenname(), is(KUNDEN_NAME));
 	}
 
 	@Test
 	public void sollteKundenadresseZurueckgebenKoennen() {
-		assertThat(bestellung.getKundenadresse(), is(kunde.getAdresse()));
+		assertThat(bestellung.getKundenadresse(), is(ADRESSE));
 	}
 
 	@Test
@@ -58,8 +57,9 @@ public class BestellungTest {
 
 	@Test
 	public void sollteDatumZeitUndKundennamePerToStringAnzeigenKoennen() {
-		assertThat(bestellung.toString().matches(ZEIT_FORMAT), is(true));
-		assertThat(bestellung.toString().endsWith(" / " + KUNDEN_NAME), is(true));
+		String bestellungAlsString = bestellung.toString();
+    assertThat(bestellungAlsString.matches(ZEIT_FORMAT), is(true));
+		assertThat(bestellungAlsString.endsWith(" / " + KUNDEN_NAME), is(true));
 	}
 
 }
