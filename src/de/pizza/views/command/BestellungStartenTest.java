@@ -26,10 +26,4 @@ public class BestellungStartenTest {
     assertThat(kunde.getBestellungen().isEmpty(), is(true));
   }
 
-  @Test
-  public void sollteBestellungDtoAnlegen() {
-
-
-  }
-
 }
