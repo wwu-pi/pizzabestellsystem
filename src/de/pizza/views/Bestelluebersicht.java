@@ -21,22 +21,22 @@ import static de.pizza.views.UiUtils.flowLayoutPanelWith;
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.Bestellung;
 import de.pizza.views.command.BestellungBearbeitenCommand;
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.KundenSucheCommand;
 
 public class Bestelluebersicht extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private final CommandListener commandListener;
+	private final CommandHandler commandHandler;
 	private final Pizzeria pizzeria;
 
 	private JList<Bestellung> bestellungen;
 	private JButton stornieren;
 	private JButton bearbeiten;
 	
-	public Bestelluebersicht(Pizzeria pizzeria, CommandListener commandListener) {
+	public Bestelluebersicht(Pizzeria pizzeria, CommandHandler commandHandler) {
 		this.pizzeria = pizzeria;
-		this.commandListener = commandListener;
+		this.commandHandler = commandHandler;
 		initialize();
 	}
 
@@ -65,7 +65,7 @@ public class Bestelluebersicht extends JFrame {
 			neueBestellungButton.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
-					commandListener.process(new KundenSucheCommand());
+					commandHandler.process(new KundenSucheCommand());
 				}
 			});
 			controlPanel.add(flowLayoutPanelWith(neueBestellungButton), BorderLayout.EAST);
@@ -81,7 +81,7 @@ public class Bestelluebersicht extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						Bestellung ausgewaehlteBestellung = bestellungen.getSelectedValue();
-						commandListener.process(new BestellungBearbeitenCommand(ausgewaehlteBestellung));
+						commandHandler.process(new BestellungBearbeitenCommand(ausgewaehlteBestellung));
 					}
 				});
 			}

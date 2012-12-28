@@ -1,6 +1,6 @@
 package de.pizza.views.command;
 
-public interface CommandListener {
+public interface CommandHandler {
 
 	void process(Command command);
 

@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import de.pizza.domain.Bestellung;
 import de.pizza.views.command.BestellerfassungAbgebrochenCommand;
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 
 public class Bestellungserfassung extends Bestellungsbearbeitung {
 	private static final long serialVersionUID = 1L;
 
-	public Bestellungserfassung(Bestellung bestellung, CommandListener commandListener) {
-		super(bestellung, commandListener);
+	public Bestellungserfassung(Bestellung bestellung, CommandHandler commandHandler) {
+		super(bestellung, commandHandler);
 		customizeAbbrechenActionHandler();
 	}
 
@@ -22,7 +22,7 @@ public class Bestellungserfassung extends Bestellungsbearbeitung {
 		abbrechen.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				commandListener.process(new BestellerfassungAbgebrochenCommand(bestellung));
+				commandHandler.process(new BestellerfassungAbgebrochenCommand(bestellung));
 			}
 		});
 	}

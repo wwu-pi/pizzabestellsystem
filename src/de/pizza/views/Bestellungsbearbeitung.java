@@ -18,23 +18,23 @@ import static de.pizza.views.UiUtils.*;
 import static java.awt.GridBagConstraints.*;
 
 import de.pizza.domain.Bestellung;
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.ZurUebersichtGehenCommand;
 
 public class Bestellungsbearbeitung extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	protected Bestellung bestellung;
-	protected CommandListener commandListener;
+	protected CommandHandler commandHandler;
 
 	protected JButton abbrechen;
 
 	private JTextArea inhalt;
 	private JTextArea lieferhinweis;
 
-	public Bestellungsbearbeitung(Bestellung bestellung, CommandListener commandListener) {
+	public Bestellungsbearbeitung(Bestellung bestellung, CommandHandler commandHandler) {
 		this.bestellung = bestellung;
-		this.commandListener = commandListener;
+		this.commandHandler = commandHandler;
 		initialize();
 	}
 
@@ -103,7 +103,7 @@ public class Bestellungsbearbeitung extends JFrame {
 				public void actionPerformed(ActionEvent event) {
 					bestellung.setInhalt(inhalt.getText());
 					bestellung.setLieferhinweis(lieferhinweis.getText());
-					commandListener.process(new ZurUebersichtGehenCommand());
+					commandHandler.process(new ZurUebersichtGehenCommand());
 				}
 			});
 			
@@ -111,7 +111,7 @@ public class Bestellungsbearbeitung extends JFrame {
 			abbrechen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
-					commandListener.process(new ZurUebersichtGehenCommand());
+					commandHandler.process(new ZurUebersichtGehenCommand());
 				}
 			});
 

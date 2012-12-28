@@ -14,9 +14,9 @@ import de.pizza.domain.Kunde;
 import de.pizza.domain.serializer.KundenQuelle;
 import de.pizza.domain.serializer.KundenQuelleImpl;
 import de.pizza.views.command.Command;
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 
-public class BestellsystemApplication implements CommandListener {
+public class BestellsystemApplication implements CommandHandler {
 	private JFrame aktuelleMaske = new JFrame("empty");
 	private Pizzeria pizzeria;
 

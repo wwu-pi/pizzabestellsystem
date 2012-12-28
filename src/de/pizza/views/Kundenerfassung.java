@@ -23,7 +23,7 @@ import static java.awt.GridBagConstraints.RELATIVE;
 import static java.awt.GridBagConstraints.REMAINDER;
 
 import de.pizza.domain.Kunde;
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.NeueBestellungErfassen;
 import de.pizza.views.command.ZurUebersichtGehenCommand;
 
@@ -31,15 +31,15 @@ public class Kundenerfassung extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
 	private Kunde kunde;
-	private CommandListener commandListener;
+	private CommandHandler commandHandler;
 
 	private JTextArea lieferhinweis;
 	private JTextArea adresse;
 	private JTextField name;
 
-	public Kundenerfassung(Kunde kunde, CommandListener commandListener) {
+	public Kundenerfassung(Kunde kunde, CommandHandler commandHandler) {
 		this.kunde = kunde;
-		this.commandListener = commandListener;
+		this.commandHandler = commandHandler;
 		initialize();
 	}
 
@@ -100,7 +100,7 @@ public class Kundenerfassung extends JFrame {
 					kunde.setName(name.getText());
 					kunde.setAdresse(adresse.getText());
 					kunde.setLieferhinweis(lieferhinweis.getText());
-					commandListener.process(new NeueBestellungErfassen(kunde));
+					commandHandler.process(new NeueBestellungErfassen(kunde));
 				}
 			});
 			
@@ -108,7 +108,7 @@ public class Kundenerfassung extends JFrame {
 			abbrechen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
-					commandListener.process(new ZurUebersichtGehenCommand());
+					commandHandler.process(new ZurUebersichtGehenCommand());
 				}
 			});
 			controlPanel.add(flowLayoutPanelWith(abschliessen, abbrechen), BorderLayout.EAST);

@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import de.pizza.views.command.CommandListener;
+import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.KundeBearbeitenCommand;
 import de.pizza.views.command.ZurUebersichtGehenCommand;
 
@@ -23,12 +23,12 @@ import static de.pizza.views.UiUtils.*;
 public class Kundensuche extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	private CommandListener commandListener;
+	private CommandHandler commandListener;
 
 	private JTextField telefonnummer;
 
-	public Kundensuche(CommandListener commandListener) {
-		this.commandListener = commandListener;
+	public Kundensuche(CommandHandler commandHandler) {
+		this.commandListener = commandHandler;
 		initialize();
 	}
 
