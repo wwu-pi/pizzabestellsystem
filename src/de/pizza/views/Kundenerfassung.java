@@ -24,7 +24,7 @@ import static java.awt.GridBagConstraints.REMAINDER;
 
 import de.pizza.domain.Kunde;
 import de.pizza.views.command.CommandHandler;
-import de.pizza.views.command.NeueBestellungErfassen;
+import de.pizza.views.command.NeueBestellungErfassenCommand;
 import de.pizza.views.command.ZurUebersichtGehenCommand;
 
 public class Kundenerfassung extends JFrame {
@@ -100,7 +100,7 @@ public class Kundenerfassung extends JFrame {
           kunde.setName(name.getText());
           kunde.setAdresse(adresse.getText());
           kunde.setLieferhinweis(lieferhinweis.getText());
-          commandHandler.process(new NeueBestellungErfassen(kunde));
+          commandHandler.process(new NeueBestellungErfassenCommand(kunde));
         }
       });
 

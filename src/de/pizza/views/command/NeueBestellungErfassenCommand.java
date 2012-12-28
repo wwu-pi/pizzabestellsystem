@@ -8,13 +8,13 @@ import de.pizza.domain.Kunde;
 import de.pizza.views.Bestellungserfassung;
 import de.pizza.views.GuiHandler;
 
-public class NeueBestellungErfassen implements Command {
+public class NeueBestellungErfassenCommand implements Command {
 
   private final Kunde kunde;
 
   private BestellDaten bestellDaten;
 
-  public NeueBestellungErfassen(Kunde kunde) {
+  public NeueBestellungErfassenCommand(Kunde kunde) {
     this.kunde = kunde;
   }
 

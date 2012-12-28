@@ -19,7 +19,7 @@ public class BestellungStartenTest {
     CommandHandler commandHandler = mock(CommandHandler.class);
     GuiHandler guiHandler = mock(GuiHandler.class);
     Kunde kunde = new Kunde("");
-    Command command = new NeueBestellungErfassen(kunde);
+    Command command = new NeueBestellungErfassenCommand(kunde);
 
     command.execute(pizzeria, commandHandler, guiHandler);
 
