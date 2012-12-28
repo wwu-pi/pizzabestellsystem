@@ -35,7 +35,7 @@ public class BestellsystemApplication implements CommandHandler {
 
   public static void main(String[] args) {
     Pizzeria pizzeria = ladePizzeriaFallsVorhanden();
-    GuiHandler guiHandler = new GuiHandlerImpl(pizzeria);
+    GuiHandler guiHandler = new GuiHandlerImpl(new WindowClosingHandler(pizzeria));
     BestellsystemApplication app = new BestellsystemApplication(pizzeria, guiHandler);
     app.start();
   }

@@ -2,15 +2,15 @@ package de.pizza.views;
 
 import javax.swing.JFrame;
 
-import de.pizza.controller.Pizzeria;
 
 public class GuiHandlerImpl implements GuiHandler {
-  private final Pizzeria pizzeria;
 
   private JFrame aktuelleMaske = new JFrame("empty");
 
-  public GuiHandlerImpl(Pizzeria pizzeria) {
-    this.pizzeria = pizzeria;
+  private WindowClosingHandler windowClosingHandler;
+
+  public GuiHandlerImpl(WindowClosingHandler windowClosingHandler) {
+    this.windowClosingHandler = windowClosingHandler;
   }
 
   public void wechseleZu(JFrame neuerMaske) {
@@ -20,7 +20,7 @@ public class GuiHandlerImpl implements GuiHandler {
     aktuelleMaske = neuerMaske;
 
     aktuelleMaske.setLocationRelativeTo(null);
-    aktuelleMaske.addWindowListener(new WindowClosingHandler(pizzeria));
+    aktuelleMaske.addWindowListener(windowClosingHandler);
     aktuelleMaske.setVisible(true);
   }
 }
