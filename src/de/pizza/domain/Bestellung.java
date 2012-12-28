@@ -15,13 +15,6 @@ public class Bestellung implements Serializable {
 	private String inhalt = "";
 	private String lieferhinweis;
 
-  @Deprecated
-	Bestellung(Kunde kunde) {
-		this.zeit = Zeitgeber.getAktuelleZeit();
-		this.kunde = kunde;
-		this.lieferhinweis = kunde.getLieferhinweis();
-	}
-
 	Bestellung(BestellDaten daten) {
       this.zeit = daten.zeit;
       this.kunde = daten.kunde;

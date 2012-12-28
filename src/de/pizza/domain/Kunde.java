@@ -51,13 +51,6 @@ public class Kunde implements Serializable {
 		return Collections.unmodifiableSet(bestellungen);
 	}
 	
-  @Deprecated
-	public Bestellung bestellungAufnehmen() {
-		Bestellung neueBestellung = new Bestellung(this);
-		bestellungen.add(neueBestellung);
-		return neueBestellung;
-	}
-
   public BestellDaten bestellerfassungStarten() {
     return new BestellDaten(this);
   }
