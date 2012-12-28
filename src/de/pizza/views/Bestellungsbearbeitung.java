@@ -97,7 +97,7 @@ public class Bestellungsbearbeitung extends JFrame {
 			JPanel controlPanel = new JPanel(new BorderLayout(), true);
 			add(controlPanel, BorderLayout.SOUTH);
 			
-			JButton abschliessen = new JButton("Bestellung abschließen");
+			JButton abschliessen = new JButton("Bestellung speichern");
 			abschliessen.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent event) {
