@@ -9,7 +9,7 @@ public class Zeitgeber {
     Date getZeit();
   }
 
-  public class DefaultStrategy implements Strategy {
+  private final class DefaultStrategy implements Strategy {
     @Override
     public Date getZeit() {
       return Calendar.getInstance().getTime();
