@@ -11,7 +11,7 @@ import de.pizza.views.GuiHandler;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
-public class BestellungStartenTest {
+public class NeueBestellungErfassenTest {
 
   @Test
   public void sollteBestellungNichtVorDemErfassenAnlegen() {
