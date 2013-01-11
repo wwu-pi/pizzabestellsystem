@@ -9,10 +9,10 @@ import java.io.ObjectOutputStream;
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.serializer.KundenSenkeImpl;
 
-final class WindowClosingHandler extends WindowAdapter {
+public final class WindowClosingHandler extends WindowAdapter {
   private final Pizzeria pizzeria;
 
-  WindowClosingHandler(Pizzeria pizzeria) {
+  public WindowClosingHandler(Pizzeria pizzeria) {
     this.pizzeria = pizzeria;
   }
 

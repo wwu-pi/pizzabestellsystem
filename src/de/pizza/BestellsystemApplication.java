@@ -1,4 +1,4 @@
-package de.pizza.views;
+package de.pizza;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,6 +11,10 @@ import de.pizza.controller.Pizzeria;
 import de.pizza.domain.Kunde;
 import de.pizza.domain.serializer.KundenQuelle;
 import de.pizza.domain.serializer.KundenQuelleImpl;
+import de.pizza.views.Bestelluebersicht;
+import de.pizza.views.GuiHandler;
+import de.pizza.views.GuiHandlerImpl;
+import de.pizza.views.WindowClosingHandler;
 import de.pizza.views.command.Command;
 import de.pizza.views.command.CommandHandler;
 
