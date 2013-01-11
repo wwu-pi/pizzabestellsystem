@@ -23,7 +23,7 @@ public class PizzeriaTest {
     Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
     assertThat(pizzeria.sucheKunde(TELEFONNUMMER), is(not(nullValue())));
   }
-
+  
   private Pizzeria neuePizzeriaMitEinemKunden() {
     return new Pizzeria(new KundenQuelle() {
       @Override
@@ -33,6 +33,36 @@ public class PizzeriaTest {
         return kunden;
       }
     });
+  }
+  
+  @Test
+  public void sollteErstelltenKundenNichtDirektSpeichern() {
+    Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
+    
+    pizzeria.erstelleKunde("DUMMY");
+    
+    assertThat(pizzeria.sucheKunde("DUMMY"), is(nullValue()));
+  }
+  
+  @Test
+  public void sollteKundenDurchErsetzenSpeichern() {
+    Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
+    
+    Kunde kunde = pizzeria.erstelleKunde("DUMMY");
+    pizzeria.ersetze(kunde);
+    
+    assertThat(pizzeria.sucheKunde("DUMMY"), is(kunde));
+  }
+  
+  @Test
+  public void sollteAlleBestellungenAusgebenKoennen() {
+    Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
+     
+    Kunde kunde = pizzeria.sucheKunde(TELEFONNUMMER);
+    kunde.bestellerfassungStarten().bestellungAufnehmen();
+    kunde.bestellerfassungStarten().bestellungAufnehmen();
+    
+    assertThat(pizzeria.getAlleBestellungen().size(), is(2));
   }
 
 }
