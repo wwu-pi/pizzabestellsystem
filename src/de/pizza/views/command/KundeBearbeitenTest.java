@@ -44,5 +44,14 @@ public class KundeBearbeitenTest {
     
     verify(pizzeria).sucheKunde(vorhandeneTelefonnummer);
   }
+  
+  @Test
+  public void sollteMaskenWechselAusloesen() {
+    KundeBearbeitenCommand testObject = new KundeBearbeitenCommand("DUMMY");
+    
+    testObject.execute(pizzeria, commandHandler, guiHandler);
+    
+    verify(guiHandler).wechseleZu(testObject, pizzeria, commandHandler);
+  }
 
 }
