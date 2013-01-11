@@ -3,8 +3,8 @@ package de.pizza.views;
 import javax.swing.JFrame;
 
 import de.pizza.controller.Pizzeria;
-import de.pizza.views.command.Command;
 import de.pizza.views.command.CommandHandler;
+import de.pizza.views.command.MaskenErsteller;
 
 
 public class GuiHandlerImpl implements GuiHandler {
@@ -28,7 +28,7 @@ public class GuiHandlerImpl implements GuiHandler {
     aktuelleMaske.setVisible(true);
   }
 
-  public void wechseleZu(Command command, Pizzeria pizzeria, CommandHandler commandHandler) {
-    wechseleZu(command.erstelleMaske(pizzeria, commandHandler));
+  public void wechseleZu(MaskenErsteller maskenErsteller, Pizzeria pizzeria, CommandHandler commandHandler) {
+    wechseleZu(maskenErsteller.erstelleMaske(pizzeria, commandHandler));
   }
 }
