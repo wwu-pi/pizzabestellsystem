@@ -94,7 +94,7 @@ public class Bestelluebersicht extends JFrame {
         stornieren.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            if (confirmStornieren()) {
+            if (confirmNichtStornieren()) {
               return;
             }
             Bestellung ausgewaehlteBestellung = bestellungen.getSelectedValue();
@@ -103,7 +103,7 @@ public class Bestelluebersicht extends JFrame {
             stelleKorrektenButtonZustandSicher();
           }
 
-          private boolean confirmStornieren() {
+          private boolean confirmNichtStornieren() {
             Object[] options = { "Stornieren", "Abbrechen" };
             int userChoice = JOptionPane.showOptionDialog(thisFrame,
                 "Bestellung stornieren?", "Bestellung stornieren?",
