@@ -120,7 +120,6 @@ public class Bestelluebersicht extends JFrame {
     pack();
     Dimension minimumSize = getSize();
     setMinimumSize(minimumSize);
-    setLocationRelativeTo(null);
   }
 
   private DefaultListModel<Bestellung> getBestellungenModel() {
