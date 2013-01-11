@@ -8,7 +8,7 @@ import de.pizza.views.Bestellungsbearbeitung;
 import de.pizza.views.GuiHandler;
 
 
-public class BestellungBearbeitenCommand implements Command {
+public class BestellungBearbeitenCommand implements Command, MaskenErsteller {
 
   private final Bestellung bestellung;
 

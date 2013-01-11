@@ -7,7 +7,7 @@ import de.pizza.domain.BestellDaten;
 import de.pizza.views.Bestelluebersicht;
 import de.pizza.views.GuiHandler;
 
-public class BestellerfassungAbgeschlossenCommand implements Command {
+public class BestellerfassungAbgeschlossenCommand implements Command, MaskenErsteller {
 
   private BestellDaten bestellDaten;
 

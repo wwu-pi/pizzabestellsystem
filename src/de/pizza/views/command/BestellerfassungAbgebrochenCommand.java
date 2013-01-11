@@ -6,7 +6,7 @@ import de.pizza.controller.Pizzeria;
 import de.pizza.views.Bestelluebersicht;
 import de.pizza.views.GuiHandler;
 
-public class BestellerfassungAbgebrochenCommand implements Command {
+public class BestellerfassungAbgebrochenCommand implements Command, MaskenErsteller {
 
   public BestellerfassungAbgebrochenCommand() {
   }

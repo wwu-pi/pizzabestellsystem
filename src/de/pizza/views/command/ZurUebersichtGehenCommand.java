@@ -6,7 +6,7 @@ import de.pizza.controller.Pizzeria;
 import de.pizza.views.Bestelluebersicht;
 import de.pizza.views.GuiHandler;
 
-public class ZurUebersichtGehenCommand implements Command {
+public class ZurUebersichtGehenCommand implements Command, MaskenErsteller {
 
   @Override
   public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {

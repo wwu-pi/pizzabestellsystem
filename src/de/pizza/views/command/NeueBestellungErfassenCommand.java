@@ -8,7 +8,7 @@ import de.pizza.domain.Kunde;
 import de.pizza.views.Bestellungserfassung;
 import de.pizza.views.GuiHandler;
 
-public class NeueBestellungErfassenCommand implements Command {
+public class NeueBestellungErfassenCommand implements Command, MaskenErsteller {
 
   private final Kunde kunde;
 
