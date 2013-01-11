@@ -1,4 +1,4 @@
-package de.pizza.serialization;
+package de.pizza.domain.serializer;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
