@@ -6,6 +6,9 @@ import de.pizza.controller.Pizzeria;
 import de.pizza.views.command.CommandHandler;
 import de.pizza.views.command.MaskenErsteller;
 
+/**
+ * Sorgt für einen sauberen Wechsel von einer Maske zur Nächsten
+ */
 public interface GuiHandler {
 
   public abstract void wechseleZu(JFrame neuerMaske);
