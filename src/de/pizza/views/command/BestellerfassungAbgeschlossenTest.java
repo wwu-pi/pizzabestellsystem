@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import de.pizza.domain.BestellDaten;
 import de.pizza.domain.Kunde;
 import de.pizza.views.GuiHandler;
 
@@ -18,9 +17,8 @@ public class BestellerfassungAbgeschlossenTest {
   public void sollteBestellDatenAlsBestellungAufgeben() {
     GuiHandler guiHandler = mock(GuiHandler.class);
     Kunde kunde = new Kunde(""); 
-    BestellDaten bestellDaten = kunde.bestellerfassungStarten();
     
-    BestellerfassungAbgeschlossenCommand testObject = new BestellerfassungAbgeschlossenCommand(bestellDaten);
+    BestellerfassungAbgeschlossenCommand testObject = new BestellerfassungAbgeschlossenCommand(kunde.bestellerfassungStarten());
     testObject.execute(guiHandler);
     
     assertThat(kunde.getBestellungen().size(), is(1));
