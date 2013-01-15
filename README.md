@@ -3,7 +3,7 @@ SE WS 2012/2013: Musterlösung für das Pizzabestellsystem
 
 Diese Musterlösung ist umfangreicher als zur Lösung der Aufgabe erforderlich war, um den praktischen Einsatz von verschiedenen Mustern zu veranschaulichen.
 
-Die Main-Methode ist in [src/de/pizza/BestellsystemApplication.java](pizzabestellsystem/blob/master/src/de/pizza/BestellsystemApplication.java) untergebracht.
+Die Main-Methode ist in [BestellsystemApplication](pizzabestellsystem/blob/master/src/de/pizza/BestellsystemApplication.java) untergebracht.
 
 Commands und Double Dispatch für die GUI
 ----------------------------------------
