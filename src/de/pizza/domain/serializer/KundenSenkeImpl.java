@@ -17,9 +17,7 @@ public class KundenSenkeImpl implements KundenSenke {
   @Override
   public void speichereKunden(Set<Kunde> kunden) {
     try {
-      for (Kunde kunde : kunden) {
-        kundenOutput.writeObject(kunde);
-      }
+      kundenOutput.writeObject(kunden);
     } catch (IOException e) {
       e.printStackTrace();
     }

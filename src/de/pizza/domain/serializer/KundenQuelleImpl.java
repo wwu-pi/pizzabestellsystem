@@ -16,17 +16,17 @@ public class KundenQuelleImpl implements KundenQuelle {
     this.kundenInput = kundenInput;
   }
 
+  @SuppressWarnings("unchecked")
   public Set<Kunde> ladeKunden() {
-    final Set<Kunde> kunden = new HashSet<>();
     try {
       while (true) {
-        kunden.add((Kunde) kundenInput.readObject());
+        return (Set<Kunde>) kundenInput.readObject();
       }
     } catch (EOFException e) {
     } catch (ClassNotFoundException | IOException e) {
       e.printStackTrace();
     }
-    return kunden;
+    return new HashSet<Kunde>();
   }
 
 }

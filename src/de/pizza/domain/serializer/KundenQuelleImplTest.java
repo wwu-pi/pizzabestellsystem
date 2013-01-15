@@ -7,6 +7,8 @@ import java.io.ObjectInput;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -29,9 +31,11 @@ public class KundenQuelleImplTest {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     ObjectOutput oo =  new ObjectOutputStream(baos);
 
+    final Set<Kunde> kunden = new HashSet<>();
     for (String telefonnummer : new String[] { "2", "5" }) {
-      oo.writeObject(erstelleKundeMitEinerBestellungUnd(telefonnummer));
+      kunden.add(erstelleKundeMitEinerBestellungUnd(telefonnummer));
     }
+    oo.writeObject(kunden);
 
     byte[] kundeInByteArray = baos.toByteArray();
 
