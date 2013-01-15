@@ -47,8 +47,11 @@ Der Zeitgeber bietet die Möglichkeit per `setStrategy` eine beliebige `Strategy
 
 Weil das Feld für die Strategie und die Methoden der Zeitgeber-Klasse statisch sind, wird hier implizit ein Singleton erstellt. Eine Garantie hierfür gibt es jedoch nicht, da unterschiedliche JVMs unterschiedliche ClassLoader einsetzen. Die ClassLoader gehen teilweise unterschiedlich mit statischen Feldern um.
 
-Spy im PizzeriaPersistenzTest.java
-----------------------------------
+Spy im Pizzeria Persistenz Test
+-------------------------------
+Im Test für die Persistenz der Pizzeria (<a href="pizzabestellsystem/blob/master/src/de/pizza/controller/PizzeriaPersistenzTest.java">PizzeriaPersistenzTest</a>) wird ein sogenannter <a href="http://xunitpatterns.com/Test%20Spy.html">Spy</a> eingesetzt. Mit Hilfe des Spy kann auf einfachste Art und Weise sichergestellt werden, dass die Methode `Pizzeria.persistiereKunden` die Methode `speichereKunden` am übergebenen `KundenSenke`-Objekt aufruft.
+
+Alternativ hätte auch ein Mock genutzt werden können. Mocks werden im nächsten Abschnitt erläutert.
 
 Mocking für Command-Tests
 -------------------------
