@@ -34,6 +34,8 @@ public class BestellDatenZeitTest {
 
   @After
   public void tearDown() {
+    // WICHTIG, damit andere Tests nicht durch die Änderung der Strategy
+    // beeinflusst werden
     Zeitgeber.resetStrategy();
   }
 
