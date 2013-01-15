@@ -25,7 +25,7 @@ public class BestellerfassungAbgeschlossenTest {
     testObject.execute(null, commandHandler, guiHandler);
     
     assertThat(kunde.getBestellungen().size(), is(1));
-    verify(guiHandler).wechseleZu(testObject, null, commandHandler);
+    verify(guiHandler).wechseleZuMaskeVon(testObject);
   }
 
 }

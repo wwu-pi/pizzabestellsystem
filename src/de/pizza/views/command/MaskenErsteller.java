@@ -10,7 +10,7 @@ import de.pizza.views.GuiHandler;
  * {@link JFrame} zurück.</p>
  * 
  * <p>Durch die Entkopplung (Aufruf durch
- * {@link GuiHandler#wechseleZu(MaskenErsteller, Pizzeria, CommandHandler)})
+ * {@link GuiHandler#wechseleZuMaskeVon(MaskenErsteller)})
  * werden die Masken nur zur Laufzeit und nicht unnötigerweise in den Tests
  * erstellt. Wenn die Masken bereits in den Tests konstruiert werden, verlängert
  * sich die Testausführung jeweils enorm (Bsp: von 0,003s auf ~0,6s).</p>

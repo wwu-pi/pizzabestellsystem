@@ -22,9 +22,9 @@ public class BestellsystemApplication implements CommandHandler {
   private Pizzeria pizzeria;
   private GuiHandler guiHandler;
 
-  public BestellsystemApplication(Pizzeria pizzeria, GuiHandler guiHandler) {
+  public BestellsystemApplication(Pizzeria pizzeria) {
     this.pizzeria = pizzeria;
-    this.guiHandler = guiHandler;
+    this.guiHandler = new GuiHandlerImpl(pizzeria, new WindowClosingHandler(pizzeria), this);
   }
 
   private void start() {
@@ -38,8 +38,7 @@ public class BestellsystemApplication implements CommandHandler {
 
   public static void main(String[] args) {
     Pizzeria pizzeria = ladePizzeriaFallsVorhanden();
-    GuiHandler guiHandler = new GuiHandlerImpl(new WindowClosingHandler(pizzeria));
-    BestellsystemApplication app = new BestellsystemApplication(pizzeria, guiHandler);
+    BestellsystemApplication app = new BestellsystemApplication(pizzeria);
     app.start();
   }
 

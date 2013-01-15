@@ -51,7 +51,7 @@ public class KundeBearbeitenTest {
     
     testObject.execute(pizzeria, commandHandler, guiHandler);
     
-    verify(guiHandler).wechseleZu(testObject, pizzeria, commandHandler);
+    verify(guiHandler).wechseleZuMaskeVon(testObject);
   }
 
 }

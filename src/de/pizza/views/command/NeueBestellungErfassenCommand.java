@@ -22,7 +22,7 @@ public class NeueBestellungErfassenCommand implements Command, MaskenErsteller {
   public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
     pizzeria.ersetze(kunde);
     bestellDaten = kunde.bestellerfassungStarten();
-    guiHandler.wechseleZu(this, pizzeria, commandHandler);
+    guiHandler.wechseleZuMaskeVon(this);
   }
 
   @Override

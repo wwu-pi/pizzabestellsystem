@@ -23,7 +23,7 @@ public class KundeBearbeitenCommand implements Command, MaskenErsteller {
     if (kunde == null) {
       kunde = pizzeria.erstelleKunde(telefonnummer);
     }
-    guiHandler.wechseleZu(this, pizzeria, commandHandler);
+    guiHandler.wechseleZuMaskeVon(this);
   }
 
   @Override

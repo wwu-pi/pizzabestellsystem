@@ -11,10 +11,16 @@ public class GuiHandlerImpl implements GuiHandler {
 
   private JFrame aktuelleMaske = new JFrame("empty");
 
-  private WindowClosingHandler windowClosingHandler;
+  private final WindowClosingHandler windowClosingHandler;
+  private final CommandHandler commandHandler;
 
-  public GuiHandlerImpl(WindowClosingHandler windowClosingHandler) {
+  private Pizzeria pizzeria;
+
+  public GuiHandlerImpl(Pizzeria pizzeria,
+      WindowClosingHandler windowClosingHandler, CommandHandler commandHandler) {
+    this.pizzeria = pizzeria;
     this.windowClosingHandler = windowClosingHandler;
+    this.commandHandler = commandHandler;
   }
 
   public void wechseleZu(JFrame neuerMaske) {
@@ -28,7 +34,7 @@ public class GuiHandlerImpl implements GuiHandler {
     aktuelleMaske.setVisible(true);
   }
 
-  public void wechseleZu(MaskenErsteller maskenErsteller, Pizzeria pizzeria, CommandHandler commandHandler) {
-    wechseleZu(maskenErsteller.erstelleMaske(pizzeria, commandHandler));
+  public void wechseleZuMaskeVon(MaskenErsteller ersteller) {
+    wechseleZu(ersteller.erstelleMaske(pizzeria, commandHandler));
   }
 }
