@@ -60,3 +60,9 @@ Damit während der Tests der Commands keine grafischen Oberflächen erzeugt werd
 Das Mock-Objekt stellt alle Methoden, die `GuiHandler` anbietet, bereit. Aufrufer erhalten eine Antwort auf ihre Anfragen, obwohl keine konkrete Implementierung vorliegt. Darüberhinaus können Mock-Objekte mit Antworten auf Anfragen ausgestattet werden (siehe `Mockito.when`).
 
 In einem Testfall kann mit Hilfe der Methode `Mockito.verify` abschließend festgestellt werden, ob das Mock-Objekt den Erwartungen entsprechend aufgerufen wurde. Beispielsweise soll die Stornierung einer Bestellung keinen Maskenwechsel auslösen. Dies kann durch den Aufruf `Mockito.verifyZeroInteractions` sichergestellt werden (siehe <a href="pizzabestellsystem/blob/master/src/de/pizza/views/command/BestellungStornierenTest.java">BestellungStornierenTest</a>).
+
+Testabdeckung
+-------------
+Die Anwendung hat eine recht gute Testabdeckung. Bislang nicht erfasst ist das Verhalten der grafischen Oberfläche und die Initialisierung der Anwendung.
+
+![Testabdeckung am 15. Januar 2013 17:00](pizzabestellsystem/raw/master/testcoverage.png)
