@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Helper-Klasse für die Gestaltung von grafischen Oberflächen
+ */
 public class UiUtils {
 
   public static JTextArea disableTabInsertion(JTextArea textarea) {
