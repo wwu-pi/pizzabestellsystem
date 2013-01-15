@@ -7,7 +7,7 @@ import de.pizza.domain.Kunde;
 import de.pizza.views.GuiHandler;
 import de.pizza.views.Kundenerfassung;
 
-public class KundeBearbeitenCommand implements Command, MaskenErsteller {
+public class KundeBearbeitenCommand implements PizzeriaCommand, MaskenErsteller {
 
   private final String telefonnummer;
 

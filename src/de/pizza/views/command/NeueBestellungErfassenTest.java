@@ -18,7 +18,7 @@ public class NeueBestellungErfassenTest {
     Pizzeria pizzeria = mock(Pizzeria.class);
     GuiHandler guiHandler = mock(GuiHandler.class);
     Kunde kunde = new Kunde("");
-    Command command = new NeueBestellungErfassenCommand(kunde);
+    PizzeriaCommand command = new NeueBestellungErfassenCommand(kunde);
 
     command.execute(pizzeria, guiHandler);
 
