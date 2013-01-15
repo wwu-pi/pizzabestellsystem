@@ -17,6 +17,7 @@ import de.pizza.views.GuiHandlerImpl;
 import de.pizza.views.WindowClosingHandler;
 import de.pizza.views.command.Command;
 import de.pizza.views.command.CommandHandler;
+import de.pizza.views.command.PizzeriaCommand;
 
 public class BestellsystemApplication implements CommandHandler {
   private Pizzeria pizzeria;
@@ -34,6 +35,11 @@ public class BestellsystemApplication implements CommandHandler {
   @Override
   public void process(Command command) {
     command.execute(pizzeria, guiHandler);
+  }
+
+  @Override
+  public void process(PizzeriaCommand pizzeriaCommand) {
+    pizzeriaCommand.execute(pizzeria, guiHandler);
   }
 
   public static void main(String[] args) {

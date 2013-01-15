@@ -9,4 +9,6 @@ public interface CommandHandler {
 
   void process(Command command);
 
+  void process(PizzeriaCommand pizzeriaCommand);
+
 }
