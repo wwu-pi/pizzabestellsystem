@@ -5,10 +5,35 @@ Diese Musterlösung ist umfangreicher als zur Lösung der Aufgabe erforderlich w
 
 Die Main-Methode ist in <a href="pizzabestellsystem/blob/master/src/de/pizza/BestellsystemApplication.java">src/de/pizza/BestellsystemApplication.java</a> untergebracht.
 
-An dieser Stelle werden noch Verweise zu den Stellen, an denen bestimmte Muster verwendet wurden, erstellt und kommentiert. Ebenso wird der Quelltext an schwierigeren Stellen um erläuternde Kommentare angereichert (Stand: 11.01.2013 20:00).
-
 Commands und Double Dispatch für die GUI
 ----------------------------------------
+In dem Package <a href="pizzabestellsystem/tree/master/src/de/pizza/views/command">de.pizza.views.command</a> sind die Commands, die die Anwendung verwendet, abgelegt. Die Commands folgen dem Verhaltensmuster Befehl.
+
+Zusätzlich wurde eine besondere Art des Besuchermusters eingesetzt: Double Dispatch. Das folgende Sequenzdiagramm illustriert den Ablauf beim Aufruf eines Befehls, der einen Maskenwechsel bedingt: <a href="pizzabestellsystem/blob/master/src/de/pizza/views/command/BestellerfassungAbgeschlossenCommand.java">BestellerfassungAbgeschlossenCommand</a>.
+
+```
+ch:CommandHandler  gh:GuiHandler       c:Command  bd:BestellDaten
+        |                 |               |                 |
+        -  execute(gh)    |               |                 |
+        --------------------------------->-                 |
+        -                 |               -  bestellungAufnehmen()
+        -                 |               ----------------->-
+        -                 |  wechseleZuMaskeVon(c)          |
+        -                 -<---------------                 |
+        -                 -               -                 |
+        -                 -  erstelleMaske(p, ch)           |
+        -                 -------------->--                 |
+        -                 -              --  <<create>> (p, ch)
+        -                 -              -------------------------> bu:Bestelluebersicht
+        -                 -  bu          --                 |               |
+        -                 -<---------------                 |               |
+        -                 -               -                 |               |
+        -                 -  setVisible(true)               |               |
+        -                 ------------------------------------------------->-
+        -                 |               -                 |               |
+        -                 |               |                 |               |
+        |                 |               |                 |               |
+```
 
 Strategy für Zeitgeber
 ----------------------
