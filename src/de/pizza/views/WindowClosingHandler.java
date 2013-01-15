@@ -9,6 +9,9 @@ import java.io.ObjectOutputStream;
 import de.pizza.controller.Pizzeria;
 import de.pizza.domain.serializer.KundenSenkeImpl;
 
+/**
+ * Sorgt dafür, dass Kundendaten beim Schließen der Anwendung gespeichert werden
+ */
 public final class WindowClosingHandler extends WindowAdapter {
   private final Pizzeria pizzeria;
 
