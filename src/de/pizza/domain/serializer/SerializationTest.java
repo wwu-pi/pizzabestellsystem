@@ -18,9 +18,6 @@ import static org.junit.Assert.*;
  * Dieser Test hat mir beim Verständnis der Klasen {@link ObjectOutputStream}
  * und {@link ObjectInputStream} geholfen. Insbesondere die Serialisierung von
  * abhängigen Objekten (in diesem Fall die Bestellungen) war mir wichtig.
- * 
- * @author jan
- * 
  */
 public class SerializationTest {
 
