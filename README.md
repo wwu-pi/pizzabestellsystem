@@ -55,3 +55,8 @@ Alternativ hätte auch ein Mock genutzt werden können. Mocks werden im nächste
 
 Mocking für Command-Tests
 -------------------------
+Damit während der Tests der Commands keine grafischen Oberflächen erzeugt werden, wurde der an die Befehle übergebene `GuiHandler` durch ein sogenanntes Mock-Objekt ersetzt. In diesem Fall wurden die Mock-Objekte mit Hilfe des Mocking-Frameworks <a href="https://code.google.com/p/mockito/">Mockito</a> erstellt.
+
+Das Mock-Objekt stellt alle Methoden, die `GuiHandler` anbietet, bereit. Aufrufer erhalten eine Antwort auf ihre Anfragen, obwohl keine konkrete Implementierung vorliegt. Darüberhinaus können Mock-Objekte mit Antworten auf Anfragen ausgestattet werden (siehe `Mockito.when`).
+
+In einem Testfall kann mit Hilfe der Methode `Mockito.verify` abschließend festgestellt werden, ob das Mock-Objekt den Erwartungen entsprechend aufgerufen wurde. Beispielsweise soll die Stornierung einer Bestellung keinen Maskenwechsel auslösen. Dies kann durch den Aufruf `Mockito.verifyZeroInteractions` sichergestellt werden (siehe <a href="pizzabestellsystem/blob/master/src/de/pizza/views/command/BestellungStornierenTest.java">BestellungStornierenTest</a>).
