@@ -18,11 +18,11 @@ public class PizzeriaPersistenzTest {
   @Test
   public void sollteLadenUndSpeichernKoennen() {
     Pizzeria pizzeria = neuePizzeriaMitEinemKunden();
-    SenkeSpy kundenQuelle = new SenkeSpy();
+    SenkeSpy kundenSenke = new SenkeSpy();
 
-    pizzeria.persistiereKunden(kundenQuelle);
+    pizzeria.persistiereKunden(kundenSenke);
 
-    assertThat(kundenQuelle.wurdeAufgerufen, is(true));
+    assertThat(kundenSenke.wurdeAufgerufen, is(true));
   }
 
   private Pizzeria neuePizzeriaMitEinemKunden() {
