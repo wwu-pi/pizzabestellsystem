@@ -34,6 +34,13 @@ public class Bestellung implements Serializable {
     return ZEIT_FORMAT.format(getZeit());
   }
 
+  /*
+   * Damit Nutzer dieser Klasse nichts über die Kunde-Klasse wissen müssen,
+   * werden die Attribute, die im Zuge der Bestellungsbearbeitung benötigt
+   * werden, weitergereicht
+   * 
+   * Vgl. The Law of Demeter
+   */
   public String getKundenname() {
     return kunde.getName();
   }
