@@ -48,6 +48,7 @@ public class Kunde implements Serializable {
   }
 
   public Set<Bestellung> getBestellungen() {
+    // um ungewollte Änderungen an der Menge der Bestellungen zu verhindern
     return Collections.unmodifiableSet(bestellungen);
   }
 
