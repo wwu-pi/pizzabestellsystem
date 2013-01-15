@@ -13,7 +13,7 @@ public class BestellungStornierenTest {
   public void sollteBestellungStornieren() {
     Bestellung bestellung = mock(Bestellung.class);
     
-    new BestellungStornierenCommand(bestellung).execute(null, null, null);
+    new BestellungStornierenCommand(bestellung).execute(null, null);
     
     verify(bestellung).stornieren();
   }
@@ -23,7 +23,7 @@ public class BestellungStornierenTest {
     GuiHandler guiHandler = mock(GuiHandler.class);
     Bestellung bestellung = mock(Bestellung.class);
      
-    new BestellungStornierenCommand(bestellung).execute(null, null, guiHandler);
+    new BestellungStornierenCommand(bestellung).execute(null, guiHandler);
     
     verifyZeroInteractions(guiHandler);
   }

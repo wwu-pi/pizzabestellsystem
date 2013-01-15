@@ -16,12 +16,11 @@ public class NeueBestellungErfassenTest {
   @Test
   public void sollteBestellungNichtVorDemErfassenAnlegen() {
     Pizzeria pizzeria = mock(Pizzeria.class);
-    CommandHandler commandHandler = mock(CommandHandler.class);
     GuiHandler guiHandler = mock(GuiHandler.class);
     Kunde kunde = new Kunde("");
     Command command = new NeueBestellungErfassenCommand(kunde);
 
-    command.execute(pizzeria, commandHandler, guiHandler);
+    command.execute(pizzeria, guiHandler);
 
     assertThat(kunde.getBestellungen().isEmpty(), is(true));
   }

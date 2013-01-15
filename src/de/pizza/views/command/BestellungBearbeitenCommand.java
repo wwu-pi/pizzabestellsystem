@@ -17,7 +17,7 @@ public class BestellungBearbeitenCommand implements Command, MaskenErsteller {
   }
 
   @Override
-  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
+  public void execute(Pizzeria pizzeria, GuiHandler guiHandler) {
     guiHandler.wechseleZuMaskeVon(this);
   }
 

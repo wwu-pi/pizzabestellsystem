@@ -16,13 +16,12 @@ public class BestellerfassungAbgeschlossenTest {
   
   @Test
   public void sollteBestellDatenAlsBestellungAufgeben() {
-    CommandHandler commandHandler = mock(CommandHandler.class);
     GuiHandler guiHandler = mock(GuiHandler.class);
     Kunde kunde = new Kunde(""); 
     BestellDaten bestellDaten = kunde.bestellerfassungStarten();
     
     BestellerfassungAbgeschlossenCommand testObject = new BestellerfassungAbgeschlossenCommand(bestellDaten);
-    testObject.execute(null, commandHandler, guiHandler);
+    testObject.execute(null, guiHandler);
     
     assertThat(kunde.getBestellungen().size(), is(1));
     verify(guiHandler).wechseleZuMaskeVon(testObject);

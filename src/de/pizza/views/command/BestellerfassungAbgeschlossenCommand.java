@@ -16,7 +16,7 @@ public class BestellerfassungAbgeschlossenCommand implements Command, MaskenErst
   }
 
   @Override
-  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
+  public void execute(Pizzeria pizzeria, GuiHandler guiHandler) {
     bestellDaten.bestellungAufnehmen();
     guiHandler.wechseleZuMaskeVon(this);
   }

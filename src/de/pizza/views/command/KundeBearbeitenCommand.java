@@ -18,7 +18,7 @@ public class KundeBearbeitenCommand implements Command, MaskenErsteller {
   }
 
   @Override
-  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
+  public void execute(Pizzeria pizzeria, GuiHandler guiHandler) {
     kunde = pizzeria.sucheKunde(telefonnummer);
     if (kunde == null) {
       kunde = pizzeria.erstelleKunde(telefonnummer);

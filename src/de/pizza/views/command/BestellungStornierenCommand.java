@@ -13,7 +13,7 @@ public class BestellungStornierenCommand implements Command {
   }
 
   @Override
-  public void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler) {
+  public void execute(Pizzeria pizzeria, GuiHandler guiHandler) {
     bestellung.stornieren();
   }
 

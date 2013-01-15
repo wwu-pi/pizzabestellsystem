@@ -6,6 +6,6 @@ import de.pizza.views.GuiHandler;
 
 public interface Command {
 
-  void execute(Pizzeria pizzeria, CommandHandler commandHandler, GuiHandler guiHandler);
+  void execute(Pizzeria pizzeria, GuiHandler guiHandler);
 
 }

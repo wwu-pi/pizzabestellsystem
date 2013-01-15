@@ -33,7 +33,7 @@ public class BestellsystemApplication implements CommandHandler {
 
   @Override
   public void process(Command command) {
-    command.execute(pizzeria, this, guiHandler);
+    command.execute(pizzeria, guiHandler);
   }
 
   public static void main(String[] args) {
