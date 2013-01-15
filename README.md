@@ -12,27 +12,29 @@ In dem Package <a href="pizzabestellsystem/tree/master/src/de/pizza/views/comman
 Zusätzlich wurde eine besondere Art des Besuchermusters eingesetzt: Double Dispatch. Das folgende Sequenzdiagramm illustriert den Ablauf beim Aufruf eines Befehls, der einen Maskenwechsel bedingt: <a href="pizzabestellsystem/blob/master/src/de/pizza/views/command/BestellerfassungAbgeschlossenCommand.java">BestellerfassungAbgeschlossenCommand</a>.
 
 ```
-ch:CommandHandler  gh:GuiHandler       c:Command  bd:BestellDaten
-        |                 |               |                 |
-        -  execute(gh)    |               |                 |
-        --------------------------------->-                 |
-        -                 |               -  bestellungAufnehmen()
-        -                 |               ----------------->-
-        -                 |  wechseleZuMaskeVon(c)          |
-        -                 -<---------------                 |
-        -                 -               -                 |
-        -                 -  erstelleMaske(p, ch)           |
-        -                 -------------->--                 |
-        -                 -              --  <<create>> (p, ch)
-        -                 -              -------------------------> bu:Bestelluebersicht
-        -                 -  bu          --                 |               |
-        -                 -<---------------                 |               |
-        -                 -               -                 |               |
-        -                 -  setVisible(true)               |               |
-        -                 ------------------------------------------------->-
-        -                 |               -                 |               |
-        -                 |               |                 |               |
-        |                 |               |                 |               |
+  ch:CommandHandler  gh:GuiHandler       c:Command  bd:BestellDaten
+          |                 |               |                 |
+process(c)|                 |               |                 |
+--------->-                 |               |                 |
+          -  execute(gh)    |               |                 |
+          --------------------------------->-                 |
+          -                 |               -  bestellungAufnehmen()
+          -                 |               ----------------->-
+          -                 |  wechseleZuMaskeVon(c)          |
+          -                 -<---------------                 |
+          -                 -               -                 |
+          -                 -  erstelleMaske(p, ch)           |
+          -                 -------------->--                 |
+          -                 -              --  <<create>> (p, ch)
+          -                 -              -------------------------> bu:Bestelluebersicht
+          -                 -  bu          --                 |               |
+          -                 -<---------------                 |               |
+          -                 -               -                 |               |
+          -                 -  setVisible(true)               |               |
+          -                 ------------------------------------------------->-
+          -                 |               -                 |               |
+          -                 |               |                 |               |
+          |                 |               |                 |               |
 ```
 
 Strategy für Zeitgeber
