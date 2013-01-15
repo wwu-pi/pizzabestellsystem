@@ -21,7 +21,7 @@ public class BestellerfassungAbgeschlossenTest {
     BestellDaten bestellDaten = kunde.bestellerfassungStarten();
     
     BestellerfassungAbgeschlossenCommand testObject = new BestellerfassungAbgeschlossenCommand(bestellDaten);
-    testObject.execute(null, guiHandler);
+    testObject.execute(guiHandler);
     
     assertThat(kunde.getBestellungen().size(), is(1));
     verify(guiHandler).wechseleZuMaskeVon(testObject);

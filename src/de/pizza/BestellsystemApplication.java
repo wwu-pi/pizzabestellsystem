@@ -34,7 +34,7 @@ public class BestellsystemApplication implements CommandHandler {
 
   @Override
   public void process(Command command) {
-    command.execute(pizzeria, guiHandler);
+    command.execute(guiHandler);
   }
 
   @Override

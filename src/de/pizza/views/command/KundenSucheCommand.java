@@ -9,7 +9,7 @@ import de.pizza.views.Kundensuche;
 public class KundenSucheCommand implements Command, MaskenErsteller {
 
   @Override
-  public void execute(Pizzeria pizzeria, GuiHandler guiHandler) {
+  public void execute(GuiHandler guiHandler) {
     guiHandler.wechseleZuMaskeVon(this);
   }
 
