@@ -16,6 +16,10 @@ public class UiUtils {
     return textarea;
   }
 
+  /**
+   * @param component
+   * @return component, die von einem {@link JScrollPane} umgeben ist
+   */
   public static JScrollPane wrap(Component component) {
     return new JScrollPane(component);
   }
