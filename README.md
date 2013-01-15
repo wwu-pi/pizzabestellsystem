@@ -41,6 +41,11 @@ process(c)|                 |               |                 |
 
 Strategy für Zeitgeber
 ----------------------
+Die <a href="pizzabestellsystem/blob/master/src/de/pizza/domain/Zeitgeber.java">Zeitgeber</a>-Klasse besitzt ein statisches Feld in dem die aktuelle Strategie hinterlegt ist. Das Interface der Strategy besteht lediglich aus der Methode `getZeit`.
+
+Der Zeitgeber bietet die Möglichkeit per `setStrategy` eine beliebige `Strategy` für das Abrufen der aktuellen Zeit zu hinterlegen. Dies ist besonders beim Testen von Initialisierungen mit Datumswerten hilfreich; über eine für den Test definierte Strategie wird die aktuelle Zeit festgesetzt und kann dann von den zu testenden Objekten verwendet werden. Wichtig ist dabei, dass die temporäre Strategie anschließend durch die Ursprüngliche ersetzt wird (siehe `Zeitgeber.resetStrategy`).
+
+Weil das Feld für die Strategie und die Methoden der Zeitgeber-Klasse statisch sind, wird hier implizit ein Singleton erstellt. Eine Garantie hierfür gibt es jedoch nicht, da unterschiedliche JVMs unterschiedliche ClassLoader einsetzen. Die ClassLoader gehen teilweise unterschiedlich mit statischen Feldern um.
 
 Spy im PizzeriaPersistenzTest.java
 ----------------------------------
