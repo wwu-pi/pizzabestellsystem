@@ -63,4 +63,4 @@ Testabdeckung
 -------------
 Die Anwendung hat eine recht gute Testabdeckung. Bislang nicht erfasst ist das Verhalten der grafischen Oberfläche und die Initialisierung der Anwendung.
 
-![Testabdeckung am 15. Januar 2013 17:00](pizzabestellsystem/raw/master/testcoverage.png)
+![Testabdeckung am 15. Januar 2013 17:00](https://raw.githubusercontent.com/wwu-pi/pizzabestellsystem/master/testcoverage.png)
